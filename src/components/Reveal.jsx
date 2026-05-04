@@ -1,33 +1,52 @@
-import React from 'react';
-import useInView from '../hooks/useInView';
+import React, { useEffect, useRef } from 'react';
 import './Reveal.css';
 
-/**
- * Wraps children with a scroll-reveal animation.
- *
- * Props:
- *  - variant: 'fade-up' | 'fade-left' | 'fade-right' | 'fade-in' (default: 'fade-up')
- *  - delay:   CSS delay string, e.g. '200ms' (default: '0ms')
- *  - duration: CSS duration string (default: '700ms')
- *  - threshold: Intersection threshold (default: 0.15)
- *  - className: extra classes to pass to the wrapper div
- */
 const Reveal = ({
   children,
   variant = 'fade-up',
   delay = '0ms',
-  duration = '700ms',
-  threshold,
+  duration = '800ms',
   className = '',
   as: Tag = 'div',
 }) => {
-  const [ref, isInView] = useInView({ threshold });
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    // Use a raw IntersectionObserver to bypass any React re-render bugs
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting || entry.boundingClientRect.top < 0) {
+            // Directly mutate the DOM to avoid StrictMode double-render state issues
+            el.classList.add('reveal--visible');
+            observer.unobserve(el);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px',
+      }
+    );
+
+    observer.observe(el);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
   return (
     <Tag
       ref={ref}
-      className={`reveal reveal--${variant} ${isInView ? 'reveal--visible' : ''} ${className}`}
-      style={{ '--reveal-delay': delay, '--reveal-duration': duration }}
+      className={`reveal reveal--${variant} ${className}`}
+      style={{
+        transitionDelay: delay,
+        transitionDuration: duration,
+      }}
     >
       {children}
     </Tag>

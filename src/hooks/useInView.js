@@ -1,47 +1,30 @@
 import { useEffect, useRef, useState } from 'react';
 
-/**
- * useInView — returns [ref, isInView].
- *
- * Strategy: schedule observer registration with setTimeout(200ms) so that:
- *  1. The CSS initial state (opacity:0 / translate) is guaranteed to be painted.
- *  2. React StrictMode double-invocation: the cleanup cancels the first timer
- *     before it fires, and the second invocation sets a fresh timer. The
- *     observer is registered only once, after the DOM is stable.
- */
-const useInView = ({
-  threshold  = 0.1,
-  rootMargin = '0px 0px -60px 0px',
-} = {}) => {
-  const ref      = useRef(null);
+const useInView = (options = {}) => {
+  const ref = useRef(null);
   const [isInView, setIsInView] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
 
-    let timer;
-    let observer;
+    const observer = new IntersectionObserver(([entry]) => {
+      // If the element is in view, or it has already been scrolled past
+      if (entry.isIntersecting || entry.boundingClientRect.top < 0) {
+        setIsInView(true);
+        observer.disconnect();
+      }
+    }, {
+      threshold: options.threshold || 0.1,
+      rootMargin: options.rootMargin || '0px'
+    });
 
-    timer = setTimeout(() => {
-      observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            setIsInView(true);
-            observer.disconnect();
-          }
-        },
-        { threshold, rootMargin }
-      );
-      observer.observe(el);
-    }, 200);
+    observer.observe(el);
 
     return () => {
-      clearTimeout(timer);
-      if (observer) observer.disconnect();
+      observer.disconnect();
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [options.threshold, options.rootMargin]);
 
   return [ref, isInView];
 };

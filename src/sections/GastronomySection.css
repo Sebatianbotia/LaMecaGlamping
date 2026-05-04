@@ -20,21 +20,16 @@
 }
 
 .food-col-2 {
-  flex: 1.5;
+  flex: 1.1;
 }
 
 .food-col-3 {
-  flex: 0.8;
-}
-
-.food-row {
-  display: flex;
-  gap: 20px;
+  flex: 0.9;
 }
 
 .food-img {
   width: 100%;
-  border-radius: 12px;
+  border-radius: 20px;
   object-fit: cover;
   box-shadow: 0 10px 20px rgba(0,0,0,0.3);
   transition: transform 0.3s ease;
@@ -44,35 +39,46 @@
   transform: translateY(-5px);
 }
 
-.food-tall {
-  height: 350px;
-}
+.col1-img1 { height: 310px; }
+.col1-img2 { height: 370px; }
+.col1-img3 { height: 180px; }
 
-.food-extra-tall {
-  height: 500px;
-}
+.col2-img1 { height: 240px; }
+.col2-img2 { height: 400px; }
+.col2-img3 { height: 220px; }
 
-.food-wide {
-  height: 250px;
-}
-
-.food-wide-small {
-  height: 180px;
-}
-
-.food-row .food-img {
-  flex: 1;
-}
+.col3-img1 { height: 520px; }
+.col3-img2 { height: 360px; }
 
 .gastronomy-action {
   text-align: center;
+  margin-top: 20px;
 }
 
+/* ── Responsive Grid ─────────────────────────────────────────── */
 @media (max-width: 900px) {
   .food-grid {
+    display: flex;
     flex-direction: column;
+    gap: 16px;
   }
   .food-col {
-    flex: 1;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .food-col > * {
+    flex: 1 1 calc(50% - 16px);
+    min-width: 240px;
+  }
+  .food-img {
+    height: 260px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .food-col > * {
+    flex: 1 1 100%;
   }
 }

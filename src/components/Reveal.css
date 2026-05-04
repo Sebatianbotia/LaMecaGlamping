@@ -1,65 +1,34 @@
-/* ── Base: element starts invisible ──────────────────────────────────── */
 .reveal {
   opacity: 0;
-}
-.reveal--fade-up    { transform: translateY(36px); }
-.reveal--fade-left  { transform: translateX(-36px); }
-.reveal--fade-right { transform: translateX(36px); }
-.reveal--fade-in    { transform: none; }
-
-/* ── Triggered: play a keyframe animation (always replays from start)  ─ */
-.reveal--visible.reveal--fade-up {
-  animation: kf-fade-up var(--reveal-duration, 750ms)
-    cubic-bezier(0.22, 1, 0.36, 1)
-    var(--reveal-delay, 0ms)
-    forwards;
-}
-.reveal--visible.reveal--fade-left {
-  animation: kf-fade-left var(--reveal-duration, 750ms)
-    cubic-bezier(0.22, 1, 0.36, 1)
-    var(--reveal-delay, 0ms)
-    forwards;
-}
-.reveal--visible.reveal--fade-right {
-  animation: kf-fade-right var(--reveal-duration, 750ms)
-    cubic-bezier(0.22, 1, 0.36, 1)
-    var(--reveal-delay, 0ms)
-    forwards;
-}
-.reveal--visible.reveal--fade-in {
-  animation: kf-fade-in var(--reveal-duration, 750ms)
-    cubic-bezier(0.22, 1, 0.36, 1)
-    var(--reveal-delay, 0ms)
-    forwards;
+  transition-property: opacity, transform !important;
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
 }
 
-/* ── Keyframes ───────────────────────────────────────────────────────── */
-@keyframes kf-fade-up {
-  from { opacity: 0; transform: translateY(36px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes kf-fade-left {
-  from { opacity: 0; transform: translateX(-36px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-@keyframes kf-fade-right {
-  from { opacity: 0; transform: translateX(36px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-@keyframes kf-fade-in {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+.reveal--fade-up {
+  transform: translateY(50px);
 }
 
-/* ── Respect reduced-motion ──────────────────────────────────────────── */
+.reveal--fade-left {
+  transform: translateX(-50px);
+}
+
+.reveal--fade-right {
+  transform: translateX(50px);
+}
+
+.reveal--fade-in {
+  transform: translateY(0);
+}
+
+.reveal.reveal--visible {
+  opacity: 1 !important;
+  transform: translate(0, 0) !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .reveal,
-  .reveal--fade-up,
-  .reveal--fade-left,
-  .reveal--fade-right,
-  .reveal--fade-in {
+  .reveal {
     opacity: 1 !important;
-    transform: none !important;
-    animation: none !important;
+    transform: translate(0, 0) !important;
+    transition: none !important;
   }
 }

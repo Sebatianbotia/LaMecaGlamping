@@ -6,8 +6,7 @@
 }
 
 main {
-  position: relative;
-  z-index: 1;
+  /* Removed z-index to allow sandwiching the canvas */
 }
 
 .text-center {

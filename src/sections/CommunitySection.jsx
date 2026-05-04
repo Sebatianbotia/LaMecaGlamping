@@ -1,15 +1,17 @@
 import React from 'react';
 import { ExternalLink } from 'lucide-react';
 import Reveal from '../components/Reveal';
+import ImageCarousel from '../components/ImageCarousel';
 import './CommunitySection.css';
 
-const images = [
-  { src: '/Comunidad/meca.png',  alt: 'Glamping noche',      cls: 'h-small' },
-  { src: '/Comunidad/meca2.png', alt: 'Fogata',              cls: 'h-large' },
-  { src: '/Comunidad/meca3.png', alt: 'Restaurante interior', cls: 'h-full c-span-large' },
-  { src: '/Comunidad/meca4.png', alt: 'Domo atardecer',      cls: 'h-medium' },
-  { src: '/Comunidad/meca5.png', alt: 'Vista montañas',      cls: 'h-medium' },
-  { src: '/Comunidad/meca6.png', alt: 'Fogata noche',        cls: 'h-full' },
+/* All images flat list — used by the mobile carousel */
+const carouselImages = [
+  { src: '/Comunidad/meca.png',  alt: 'Glamping de noche' },
+  { src: '/Comunidad/meca2.png', alt: 'Fogata' },
+  { src: '/Comunidad/meca3.png', alt: 'Restaurante interior' },
+  { src: '/Comunidad/meca4.png', alt: 'Domo al atardecer' },
+  { src: '/Comunidad/meca8.png', alt: 'Vista montañas' },
+  { src: '/Comunidad/meca7.png', alt: 'Fogata de noche' },
 ];
 
 const CommunitySection = () => {
@@ -31,6 +33,7 @@ const CommunitySection = () => {
           </Reveal>
         </div>
 
+        {/* ── Desktop masonry grid ──────────────────────────────────── */}
         <div className="community-grid">
           <div className="c-col">
             <Reveal variant="fade-up" delay="0ms">
@@ -50,15 +53,18 @@ const CommunitySection = () => {
               <img src="/Comunidad/meca4.png" alt="Domo atardecer" className="c-img h-medium" />
             </Reveal>
             <Reveal variant="fade-up" delay="260ms">
-              <img src="/Comunidad/meca5.png" alt="Vista montañas" className="c-img h-medium" />
+              <img src="/Comunidad/meca8.png" alt="Vista montañas" className="c-img h-medium" />
             </Reveal>
           </div>
           <div className="c-col">
             <Reveal variant="fade-up" delay="120ms">
-              <img src="/Comunidad/meca6.png" alt="Fogata noche" className="c-img h-full" />
+              <img src="/Comunidad/meca7.png" alt="Fogata noche" className="c-img h-full" />
             </Reveal>
           </div>
         </div>
+
+        {/* ── Mobile swipe carousel ─────────────────────────────────── */}
+        <ImageCarousel images={carouselImages} aspectRatio="4/3" />
       </div>
     </section>
   );
