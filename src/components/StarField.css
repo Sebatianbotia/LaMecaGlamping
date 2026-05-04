@@ -1,0 +1,15 @@
+.star-field {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  /*
+   * z-index: 4  →  above dark section backgrounds (auto / z-index:1)
+   *             →  below .hero-section (z-index: 10) and .navbar (z-index: 1000)
+   * mix-blend-mode: screen makes the canvas transparent on dark areas,
+   * so only the bright star dots are visible over section backgrounds.
+   */
+  z-index: 4;
+  mix-blend-mode: screen;
+}

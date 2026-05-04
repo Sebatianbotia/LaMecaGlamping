@@ -1,0 +1,83 @@
+.community-section {
+  padding: var(--spacing-section) 0;
+  background-color: var(--color-bg-secondary);
+}
+
+.community-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+}
+
+.community-header h2 {
+  font-size: 36px;
+  margin-bottom: 0;
+}
+
+.community-btn {
+  display: flex;
+  align-items: center;
+}
+
+.icon-ml {
+  margin-left: 8px;
+}
+
+.community-grid {
+  display: flex;
+  gap: 16px;
+}
+
+.c-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+}
+
+.c-col-large {
+  flex: 1.5;
+}
+
+.c-img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.c-img:hover {
+  transform: scale(1.02);
+}
+
+.h-small {
+  height: 180px;
+}
+
+.h-medium {
+  height: 250px;
+}
+
+.h-large {
+  height: 336px;
+}
+
+.h-full {
+  height: 100%;
+  min-height: 532px;
+}
+
+@media (max-width: 900px) {
+  .community-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .community-grid {
+    flex-direction: column;
+  }
+  .h-full {
+    min-height: 300px;
+  }
+}

@@ -1,0 +1,78 @@
+.gastronomy-section {
+  padding: var(--spacing-section) 0;
+  background-color: var(--color-bg-secondary);
+}
+
+.food-grid {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 50px;
+}
+
+.food-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.food-col-1 {
+  flex: 1;
+}
+
+.food-col-2 {
+  flex: 1.5;
+}
+
+.food-col-3 {
+  flex: 0.8;
+}
+
+.food-row {
+  display: flex;
+  gap: 20px;
+}
+
+.food-img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+
+.food-img:hover {
+  transform: translateY(-5px);
+}
+
+.food-tall {
+  height: 350px;
+}
+
+.food-extra-tall {
+  height: 500px;
+}
+
+.food-wide {
+  height: 250px;
+}
+
+.food-wide-small {
+  height: 180px;
+}
+
+.food-row .food-img {
+  flex: 1;
+}
+
+.gastronomy-action {
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .food-grid {
+    flex-direction: column;
+  }
+  .food-col {
+    flex: 1;
+  }
+}
