@@ -106,6 +106,8 @@ const GastronomySection = () => {
             <div className="action-buttons">
               <a className="btn-primary"
                 href={`https://wa.me/573112340584?text=${encodeURIComponent(`Hola, quisiera reservar una mesa`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
               >RESERVAR MESA</a>
               <a href="/MENU.pdf" target="_blank" rel="noopener noreferrer" className="btn-outline">VER MENÚ DIGITAL</a>
             </div>
