@@ -24,7 +24,7 @@ const Navbar = () => {
             <span className="logo-subtitle">GLAMPING</span>
           </div>
         </div>
-        
+
         <ul className="nav-links">
           <li><a href="#experiencia">EXPERIENCIA</a></li>
           <li><a href="#gastronomia">GASTRONOMÍA</a></li>
@@ -33,7 +33,11 @@ const Navbar = () => {
         </ul>
 
         <div className="nav-action">
-          <button className="btn-primary">RESERVAR AHORA</button>
+          <a className="btn-primary"
+            href={`https://wa.me/573112340584?text=${encodeURIComponent(`Hola, estoy interesado en reservar `)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >RESERVAR AHORA</a>
         </div>
       </div>
     </nav>

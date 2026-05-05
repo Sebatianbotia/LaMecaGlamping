@@ -7,6 +7,7 @@ import GastronomySection from './sections/GastronomySection';
 import AccommodationSection from './sections/AccommodationSection';
 import CommunitySection from './sections/CommunitySection';
 import ContactSection from './sections/ContactSection';
+import Footer from './components/Footer';
 import './App.css';
 
 function App() {
@@ -24,11 +25,7 @@ function App() {
         <CommunitySection />
         <ContactSection />
       </main>
-      <footer className="footer">
-        <div className="container text-center">
-          <p>&copy; {new Date().getFullYear()} La Meca Glamping. Todos los derechos reservados.</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

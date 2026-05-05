@@ -1,12 +1,7 @@
 .app-container {
   overflow-x: hidden;
-  /* Stacking context: sections sit above the star canvas */
   position: relative;
   z-index: 1;
-}
-
-main {
-  /* Removed z-index to allow sandwiching the canvas */
 }
 
 .text-center {
@@ -15,7 +10,7 @@ main {
 
 .footer {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   background-color: var(--color-bg-secondary);
   border-top: 1px solid var(--color-border);
   padding: 30px 0;
@@ -27,14 +22,17 @@ main {
 ::-webkit-scrollbar {
   width: 6px;
 }
+
 ::-webkit-scrollbar-track {
   background: var(--color-bg-main);
 }
+
 ::-webkit-scrollbar-thumb {
   background: var(--color-accent);
   border-radius: 3px;
   opacity: 0.6;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-accent-hover, #d1a135);
 }
