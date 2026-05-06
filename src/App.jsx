@@ -5,7 +5,6 @@ import HeroSection from './sections/HeroSection';
 import RetreatSection from './sections/RetreatSection';
 import GastronomySection from './sections/GastronomySection';
 import AccommodationSection from './sections/AccommodationSection';
-import CommunitySection from './sections/CommunitySection';
 import ContactSection from './sections/ContactSection';
 import Footer from './components/Footer';
 import './App.css';
@@ -22,7 +21,6 @@ function App() {
         <RetreatSection />
         <GastronomySection />
         <AccommodationSection />
-        <CommunitySection />
         <ContactSection />
       </main>
       <Footer />

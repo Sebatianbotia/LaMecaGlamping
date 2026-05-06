@@ -5,6 +5,15 @@ import './HeroSection.css';
 const HeroSection = () => {
   return (
     <section className="hero-section" id="inicio">
+      <video 
+        className="hero-video" 
+        autoPlay 
+        loop 
+        muted 
+        playsInline
+      >
+        <source src="/fondo.mp4" type="video/mp4" />
+      </video>
       <div className="hero-overlay"></div>
       <div className="hero-content">
         <Reveal variant="fade-up" delay="100ms" duration="1000ms">

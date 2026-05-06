@@ -55,17 +55,36 @@
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  aspect-ratio: 4 / 5;
+  width: 100%;
 }
 
-.retreat-image {
+.carousel-image {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out, transform 8s ease-out;
+  transform: scale(1.05);
+  pointer-events: none;
+  z-index: 0;
 }
 
-.retreat-image-wrapper:hover .retreat-image {
-  transform: scale(1.05);
+.carousel-image.prev {
+  opacity: 1;
+  z-index: 1;
+  transform: scale(1.02);
+  /* Se mantiene opaco mientras la nueva imagen hace fade in por encima */
+}
+
+.carousel-image.active {
+  opacity: 1;
+  z-index: 2;
+  transform: scale(1);
+  pointer-events: auto;
 }
 
 @media (max-width: 900px) {

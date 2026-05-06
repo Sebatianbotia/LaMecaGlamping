@@ -17,13 +17,6 @@ const Navbar = () => {
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="navbar-container container">
-        <div className="logo">
-          <Cloud className="logo-icon" size={24} color="#E8B849" />
-          <div className="logo-text">
-            <span className="logo-title">LA MECA</span>
-            <span className="logo-subtitle">GLAMPING</span>
-          </div>
-        </div>
 
         <ul className="nav-links">
           <li><a href="#experiencia">EXPERIENCIA</a></li>

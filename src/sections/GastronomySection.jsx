@@ -94,7 +94,6 @@ const GastronomySection = () => {
           </div>
         </div>
 
-        {/* ── Mobile swipe carousel ─────────────────────────────────── */}
         <ImageCarousel images={carouselImages} aspectRatio="4/3" />
 
         <Reveal variant="fade-up" delay="100ms">
