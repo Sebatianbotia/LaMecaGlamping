@@ -49,100 +49,71 @@
   text-transform: uppercase;
 }
 
-/* ── Grid ──────────────────────────────────────────────────────────── */
-.food-grid {
+/* ── Marquee Carousel ────────────────────────────────────────────────── */
+.gastronomy-marquees {
   display: flex;
+  flex-direction: column;
   gap: 20px;
   margin-bottom: 60px;
 }
 
-.food-col {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.food-col-1 {
-  flex: 1;
-}
-
-.food-col-2 {
-  flex: 1.1;
-}
-
-.food-col-3 {
-  flex: 0.9;
-}
-
-.food-img {
+.marquee-container {
   width: 100%;
+  overflow: hidden;
+  position: relative;
+  white-space: nowrap;
+  /* Fading edges for a premium look */
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.marquee-content {
+  display: inline-flex;
+  gap: 20px;
+  /* Hover pauses the animation */
+}
+
+.marquee-content:hover {
+  animation-play-state: paused;
+}
+
+.marquee-content.left {
+  animation: marquee-left 40s linear infinite;
+}
+
+.marquee-content.right {
+  animation: marquee-right 35s linear infinite;
+}
+
+.marquee-img-wrapper {
+  flex-shrink: 0;
+  width: 320px;
+  height: 280px;
   border-radius: 20px;
-  object-fit: cover;
+  overflow: hidden;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease;
 }
 
-.food-img:hover {
-  transform: translateY(-5px);
+.marquee-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
 }
 
-.col1-img1 {
-  height: 480px;
+.marquee-img-wrapper:hover .marquee-img {
+  transform: scale(1.08);
 }
 
-/* local2.png */
-.col1-img2 {
-  height: 300px;
+@keyframes marquee-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-50% - 10px)); } /* 10px is half the gap */
 }
 
-/* burguer.png */
-.col1-img3 {
-  height: 350px;
+@keyframes marquee-right {
+  0% { transform: translateX(calc(-50% - 10px)); }
+  100% { transform: translateX(0); }
 }
-
-/* copa.png */
-.col1-img4 {
-  height: 190px;
-}
-
-/* pollo.png */
-
-.col2-img1 {
-  height: 250px;
-}
-
-/* steak1.png */
-.col2-img2 {
-  height: 400px;
-}
-
-/* vino.png */
-.col2-img3 {
-  height: 480px;
-}
-
-/* steak2.png */
-.col2-img4 {
-  height: 190px;
-}
-
-/* steak3.png */
-
-.col3-img1 {
-  height: 500px;
-}
-
-/* plato.png */
-.col3-img2 {
-  height: 380px;
-}
-
-/* local.png */
-.col3-img3 {
-  height: 460px;
-}
-
-/* burguer2.png */
 
 /* ── Call to Action Card ───────────────────────────────────────────── */
 .gastronomy-action-card {
@@ -208,26 +179,9 @@
     font-size: 36px;
   }
 
-  .food-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .food-col {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-
-  .food-col>* {
-    flex: 1 1 calc(50% - 16px);
-    min-width: 240px;
-  }
-
-  .food-img {
-    height: 260px !important;
+  .marquee-img-wrapper {
+    width: 240px;
+    height: 200px;
   }
 
   .gastronomy-action-card {
@@ -254,7 +208,8 @@
 }
 
 @media (max-width: 600px) {
-  .food-col>* {
-    flex: 1 1 100%;
+  .marquee-img-wrapper {
+    width: 200px;
+    height: 180px;
   }
 }

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Flame, Leaf, Wine } from 'lucide-react';
 import Reveal from '../components/Reveal';
-import ImageCarousel from '../components/ImageCarousel';
 import './GastronomySection.css';
 
 /* All food images flat — used by mobile carousel */
@@ -46,55 +45,27 @@ const GastronomySection = () => {
           </div>
         </div>
 
-        {/* ── Desktop masonry grid ──────────────────────────────────── */}
-        <div className="food-grid">
-          {/* Column 1 */}
-          <div className="food-col food-col-1">
-            <Reveal variant="fade-up" delay="0ms">
-              <img src="/restaurante/local2.jpg" alt="Restaurante principal" className="food-img col1-img1" />
-            </Reveal>
-            <Reveal variant="fade-up" delay="150ms">
-              <img src="/restaurante/burguer.png" alt="Hamburguesa" className="food-img col1-img2" />
-            </Reveal>
-            <Reveal variant="fade-up" delay="300ms">
-              <img src="/restaurante/copa.png" alt="Postre en copa" className="food-img col1-img3" />
-            </Reveal>
-            <Reveal variant="fade-up" delay="450ms">
-              <img src="/restaurante/pollo.png" alt="Plato con pollo" className="food-img col1-img4" />
-            </Reveal>
+        {/* ── Infinite Loop Carousel ──────────────────────────────────── */}
+        <div className="gastronomy-marquees">
+          <div className="marquee-container">
+            <div className="marquee-content left">
+              {[...carouselImages.slice(0, 6), ...carouselImages.slice(0, 6)].map((img, i) => (
+                <div key={i} className="marquee-img-wrapper">
+                  <img src={img.src} alt={img.alt} className="marquee-img" loading="lazy" />
+                </div>
+              ))}
+            </div>
           </div>
-
-          {/* Column 2 */}
-          <div className="food-col food-col-2">
-            <Reveal variant="fade-up" delay="80ms">
-              <img src="/restaurante/steak1.png" alt="Corte de carne" className="food-img col2-img1" />
-            </Reveal>
-            <Reveal variant="fade-up" delay="200ms">
-              <img src="/restaurante/vino.png" alt="Vino" className="food-img col2-img2" />
-            </Reveal>
-            <Reveal variant="fade-up" delay="350ms">
-              <img src="/restaurante/steak2.png" alt="Carne a la parrilla" className="food-img col2-img3" />
-            </Reveal>
-            <Reveal variant="fade-up" delay="500ms">
-              <img src="/restaurante/steak3.png" alt="Carne en plato" className="food-img col2-img4" />
-            </Reveal>
-          </div>
-
-          {/* Column 3 */}
-          <div className="food-col food-col-3">
-            <Reveal variant="fade-up" delay="160ms">
-              <img src="/restaurante/plato.png" alt="Plato especial" className="food-img col3-img1" />
-            </Reveal>
-            <Reveal variant="fade-up" delay="280ms">
-              <img src="/restaurante/local.png" alt="Ambiente local" className="food-img col3-img2" />
-            </Reveal>
-            <Reveal variant="fade-up" delay="400ms">
-              <img src="/restaurante/burguer2.png" alt="Hamburguesa especial" className="food-img col3-img3" />
-            </Reveal>
+          <div className="marquee-container">
+            <div className="marquee-content right">
+              {[...carouselImages.slice(6), ...carouselImages.slice(6), ...carouselImages.slice(6)].map((img, i) => (
+                <div key={i} className="marquee-img-wrapper">
+                  <img src={img.src} alt={img.alt} className="marquee-img" loading="lazy" />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-
-        <ImageCarousel images={carouselImages} aspectRatio="4/3" />
 
         <Reveal variant="fade-up" delay="100ms">
           <div className="gastronomy-action-card">
