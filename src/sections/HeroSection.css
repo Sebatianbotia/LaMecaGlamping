@@ -42,10 +42,14 @@
   margin-top: 60px; /* Offset for navbar */
 }
 
-.hero-content h1 {
-  font-size: 56px;
-  margin-bottom: 20px;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+.hero-logo {
+  max-width: 420px;
+  width: 85%;
+  height: auto;
+  display: block;
+  margin: 0 auto 24px auto;
+  transform: translateX(-18px); /* Compensate for the asymmetrical left arc */
+  filter: drop-shadow(0 2px 10px rgba(0,0,0,0.5));
 }
 
 .hero-content p {
