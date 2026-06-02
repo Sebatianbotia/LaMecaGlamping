@@ -1,76 +1,34 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Bath, ThermometerSun, Tent, Waves, Users, Moon,
-  Star, X, CalendarDays, MessageCircle,
-  Sparkles, ArrowRight, ChevronLeft, ChevronRight,
+  Star, X, CalendarDays, MessageCircle, Maximize,
+  Sparkles, ArrowRight, Dog, ChevronLeft, ChevronRight
 } from 'lucide-react';
 import Reveal from '../components/Reveal';
 import './AccommodationSection.css';
 
 const GLAMPINGS = [
   {
-    id: 'domo-celestial',
-    name: 'Domo Celestial',
-    tag: 'MÁS POPULAR',
+    id: 'domo-geodesico',
+    name: 'Nuestros Glampings',
+    tag: 'MÁS POPULARES',
     tagColor: 'gold',
-    image: '/suite.png',
-    images: ['/suite.png', '/Comunidad/meca10.PNG', '/Comunidad/meca11.PNG'],
-    price: 'Desde $450.000 / noche',
-    capacity: '2 personas',
-    description:
-      'Vive la experiencia de dormir bajo las estrellas en nuestro domo de cristal panorámico. Una cúpula geodésica con vista 360° a las montañas de Guasca, jacuzzi privado y malla catamarán suspendida sobre el bosque.',
-    amenities: [
-      { Icon: Bath, label: 'Baño privado' },
-      { Icon: ThermometerSun, label: 'Calefacción' },
-      { Icon: Tent, label: 'Malla catamarán' },
-      { Icon: Waves, label: 'Jacuzzi' },
-      { Icon: Users, label: '2 personas' },
-      { Icon: Moon, label: 'Vista nocturna' },
-    ],
-    highlights: ['Cúpula geodésica 360°', 'Jacuzzi al aire libre', 'Desayuno incluido'],
-  },
-  {
-    id: 'refugio-selva',
-    name: 'Refugio Selva',
-    tag: 'NATURALEZA PURA',
-    tagColor: 'green',
-    image: '/Comunidad/meca9.PNG',
-    images: ['/Comunidad/meca9.PNG', '/Comunidad/meca12.PNG', '/Comunidad/meca13.jpg'],
+    image: '/glamping/glam1.jpg',
+    images: ['/glamping/glam1.jpg', '/glamping/glam6.jpg', '/glamping/glam3.jpg', '/glamping/glam4.jpg', '/glamping/bano.jpg'],
     price: 'Desde $380.000 / noche',
-    capacity: '2 – 3 personas',
+    capacity: 'Hasta 4 personas',
     description:
-      'Sumérgete en el corazón del bosque nativo en este refugio de madera y vidrio. Diseñado para quienes buscan desconectarse del mundo sin renunciar al confort. Terraza privada con hamaca y chimenea interior.',
+      'Contamos con 2 glampings: Patrón 70 y Don Julio. Vive una experiencia de descanso única en nuestros exclusivos domos geodésicos termoacondicionados, combinando confort, privacidad y naturaleza. Equipado con cama doble, sofá, baño privado de gran tamaño y amplia terraza. Relájate en nuestro jacuzzi panorámico climatizado para 4 personas contemplando la increíble vista a las montañas.\n\nTarifas: Pareja fin de semana $470.000. Entre semana desde $380.000. Persona adicional $50.000.',
     amenities: [
-      { Icon: Bath, label: 'Baño completo' },
-      { Icon: ThermometerSun, label: 'Chimenea' },
-      { Icon: Tent, label: 'Hamaca privada' },
-      { Icon: Waves, label: 'Ducha exterior' },
-      { Icon: Users, label: '2 – 3 personas' },
-      { Icon: Moon, label: 'Vista al bosque' },
+      { Icon: Bath, label: 'Baño gran tamaño' },
+      { Icon: ThermometerSun, label: 'Termoacondicionado' },
+      { Icon: Waves, label: 'Jacuzzi panorámico' },
+      { Icon: Users, label: 'Hasta 4 personas' },
+      { Icon: Dog, label: 'Pet-Friendly' },
+      { Icon: Moon, label: 'Vista a la montaña' },
     ],
-    highlights: ['Terraza privada en el bosque', 'Chimenea interior', "Kit de s'mores"],
-  },
-  {
-    id: 'glamping-nido',
-    name: 'Nido de Montaña',
-    tag: 'VISTA PANORÁMICA',
-    tagColor: 'blue',
-    image: '/suite2.png',
-    images: ['/suite2.png', '/Comunidad/meca.png', '/Comunidad/meca2.png'],
-    price: 'Desde $520.000 / noche',
-    capacity: '2 – 4 personas',
-    description:
-      'En lo más alto del predio, este glamping premium ofrece la vista más espectacular de todo el páramo. Cama king con dosel, bañera de inmersión exterior y servicio de cena romántica bajo las estrellas a solicitud.',
-    amenities: [
-      { Icon: Bath, label: 'Bañera exterior' },
-      { Icon: ThermometerSun, label: 'Calefacción radiante' },
-      { Icon: Tent, label: 'Terraza suspendida' },
-      { Icon: Waves, label: 'Hot tub' },
-      { Icon: Users, label: '2 – 4 personas' },
-      { Icon: Moon, label: 'Vista 360° páramo' },
-    ],
-    highlights: ['Bañera de inmersión exterior', 'Cama King con dosel', 'Cena romántica opcional'],
-  },
+    highlights: ['Jacuzzi panorámico climatizado', 'Aceptamos a tu mascota (Pet-Friendly)'],
+  }
 ];
 
 const WHATSAPP_NUMBER = '573112340584';
@@ -85,28 +43,74 @@ const INITIAL_FORM = {
 
 function buildWhatsAppUrl(glamping, form) {
   const msg = [
-    `🏕️ *Solicitud de Reserva – La Meca Glamping*`,
+    `*Solicitud de Reserva - La Meca Glamping*`,
     ``,
-    `👋 Hola, me interesa reservar el *${glamping.name}*.`,
+    `Hola, me interesa reservar el *${glamping.name}*.`,
     ``,
-    `📋 *Mis datos:*`,
-    `• Nombre: ${form.nombre}`,
-    `• Teléfono: ${form.telefono}`,
-    `• Número de personas: ${form.personas}`,
+    `*Mis datos:*`,
+    `Nombre: ${form.nombre}`,
+    `Teléfono: ${form.telefono}`,
+    `Número de personas: ${form.personas}`,
     ``,
-    `📅 *Fechas:*`,
-    `• Check-in: ${form.checkin}`,
-    `• Check-out: ${form.checkout}`,
-    form.solicitud ? `\n💬 *Solicitud especial:* ${form.solicitud}` : '',
+    `*Fechas:*`,
+    `Check-in: ${form.checkin}`,
+    `Check-out: ${form.checkout}`,
+    form.solicitud ? `\n*Solicitud especial:* ${form.solicitud}` : '',
     ``,
-    `¡Quedo pendiente de su confirmación! 🙏`,
+    `Quedo pendiente de su confirmación.`,
   ].join('\n');
 
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
 }
 
+const Lightbox = ({ images, initialIndex, onClose }) => {
+  const [currentIndex, setCurrentIndex] = useState(initialIndex);
+
+  const goPrev = (e) => {
+    e.stopPropagation();
+    setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  };
+
+  const goNext = (e) => {
+    e.stopPropagation();
+    setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  };
+
+  const handleClose = (e) => {
+    e.stopPropagation();
+    onClose();
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') onClose();
+      if (e.key === 'ArrowLeft') {
+        setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+      }
+      if (e.key === 'ArrowRight') {
+        setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [images.length, onClose]);
+
+  return (
+    <div className="lightbox-overlay" onClick={handleClose}>
+      <button className="lightbox-close" onClick={handleClose} aria-label="Cerrar"><X size={24} /></button>
+      <button className="lightbox-nav lightbox-prev" onClick={goPrev} aria-label="Anterior"><ChevronLeft size={32} /></button>
+      <button className="lightbox-nav lightbox-next" onClick={goNext} aria-label="Siguiente"><ChevronRight size={32} /></button>
+      <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
+        <img src={images[currentIndex]} alt="Fullscreen view" className="lightbox-img" />
+        <div className="lightbox-counter">{currentIndex + 1} / {images.length}</div>
+      </div>
+    </div>
+  );
+};
+
 const GlampingModal = ({ glamping, onClose }) => {
   const [form, setForm] = useState(INITIAL_FORM);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
   const [error, setError] = useState('');
   const [activeImg, setActiveImg] = useState(0);
 
@@ -145,10 +149,15 @@ const GlampingModal = ({ glamping, onClose }) => {
         <div className="acc-modal-inner">
           <div className="acc-modal-info">
             <div className="acc-modal-gallery">
+              <button className="expand-icon-btn" onClick={() => setLightboxOpen(true)} aria-label="Pantalla completa">
+                <Maximize size={18} />
+              </button>
               <img
                 src={glamping.images[activeImg]}
                 alt={glamping.name}
                 className="acc-modal-main-img"
+                onClick={() => setLightboxOpen(true)}
+                style={{ cursor: 'pointer' }}
               />
               <div className="acc-modal-thumbs">
                 {glamping.images.map((src, i) => (
@@ -299,42 +308,29 @@ const GlampingModal = ({ glamping, onClose }) => {
           </div>
         </div>
       </div>
+      {lightboxOpen && (
+        <Lightbox images={glamping.images} initialIndex={activeImg} onClose={() => setLightboxOpen(false)} />
+      )}
     </div>
   );
 };
 
 const AccommodationSection = () => {
-  const [current, setCurrent] = useState(0);
-  const [direction, setDirection] = useState('next');
-  const [animating, setAnimating] = useState(false);
   const [selectedGlamping, setSelectedGlamping] = useState(null);
-  const autoRef = useRef(null);
-  const total = GLAMPINGS.length;
+  const [currentImg, setCurrentImg] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
 
-  const goTo = useCallback(
-    (index, dir) => {
-      if (animating) return;
-      setDirection(dir);
-      setAnimating(true);
-      setTimeout(() => {
-        setCurrent(index);
-        setAnimating(false);
-      }, 420);
-    },
-    [animating],
-  );
+  const glamping = GLAMPINGS[0];
 
-  const goPrev = () => goTo((current - 1 + total) % total, 'prev');
-  const goNext = () => goTo((current + 1) % total, 'next');
+  const goPrevImg = (e) => {
+    e.stopPropagation();
+    setCurrentImg((prev) => (prev === 0 ? glamping.images.length - 1 : prev - 1));
+  };
 
-  useEffect(() => {
-    autoRef.current = setInterval(() => {
-      goNext();
-    }, 5000);
-    return () => clearInterval(autoRef.current);
-  }, [current, goNext]);
-
-  const glamping = GLAMPINGS[current];
+  const goNextImg = (e) => {
+    e.stopPropagation();
+    setCurrentImg((prev) => (prev === glamping.images.length - 1 ? 0 : prev + 1));
+  };
 
   return (
     <>
@@ -351,48 +347,57 @@ const AccommodationSection = () => {
             </div>
           </Reveal>
 
-          <div className="glamping-carousel-wrap">
-            <button
-              className="carousel-arrow carousel-arrow--prev"
-              onClick={goPrev}
-              aria-label="Anterior glamping"
-            >
-              <ChevronLeft size={24} />
-            </button>
-
+          <div className="glamping-carousel-wrap single-card">
             <div className="glamping-carousel-stage">
               <div
                 key={glamping.id}
-                className={`glamping-card-hero ${animating ? `exit-${direction}` : 'enter'}`}
+                className="glamping-card-hero"
               >
 
                 <div className="glamping-hero-img-wrap">
+                  <button className="expand-icon-btn" onClick={() => setLightboxOpen(true)} aria-label="Pantalla completa">
+                    <Maximize size={18} />
+                  </button>
                   <img
-                    src={glamping.image}
+                    src={glamping.images[currentImg]}
                     alt={glamping.name}
                     className="glamping-hero-img"
+                    onClick={() => setLightboxOpen(true)}
+                    style={{ cursor: 'pointer' }}
                   />
                   <span className={`glamping-card-tag glamping-card-tag--${glamping.tagColor}`}>
                     {glamping.tag}
                   </span>
-                  <div className="carousel-dots">
-                    {GLAMPINGS.map((_, i) => (
-                      <button
-                        key={i}
-                        className={`carousel-dot${i === current ? ' active' : ''}`}
-                        onClick={() => goTo(i, i > current ? 'next' : 'prev')}
-                        aria-label={`Glamping ${i + 1}`}
-                      />
-                    ))}
-                  </div>
+
+                  {glamping.images && glamping.images.length > 1 && (
+                    <>
+                      <button className="img-nav-btn img-nav-btn--prev" onClick={goPrevImg} aria-label="Imagen anterior">
+                        <ChevronLeft size={20} />
+                      </button>
+                      <button className="img-nav-btn img-nav-btn--next" onClick={goNextImg} aria-label="Siguiente imagen">
+                        <ChevronRight size={20} />
+                      </button>
+
+                      <div className="img-nav-dots">
+                        {glamping.images.map((_, i) => (
+                          <button
+                            key={i}
+                            className={`img-nav-dot ${i === currentImg ? 'active' : ''}`}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setCurrentImg(i);
+                            }}
+                            aria-label={`Ir a imagen ${i + 1}`}
+                          />
+                        ))}
+                      </div>
+                    </>
+                  )}
                 </div>
 
                 <div className="glamping-hero-body">
                   <div className="glamping-hero-top">
                     <div>
-                      <p className="glamping-hero-counter">
-                        {current + 1} / {total}
-                      </p>
                       <h3 className="glamping-hero-name">{glamping.name}</h3>
                     </div>
                     <span className="glamping-hero-capacity">
@@ -422,14 +427,6 @@ const AccommodationSection = () => {
                 </div>
               </div>
             </div>
-
-            <button
-              className="carousel-arrow carousel-arrow--next"
-              onClick={goNext}
-              aria-label="Siguiente glamping"
-            >
-              <ChevronRight size={24} />
-            </button>
           </div>
 
           <Reveal variant="fade-up" delay="200ms">
@@ -453,6 +450,13 @@ const AccommodationSection = () => {
         <GlampingModal
           glamping={selectedGlamping}
           onClose={() => setSelectedGlamping(null)}
+        />
+      )}
+      {lightboxOpen && (
+        <Lightbox 
+          images={glamping.images} 
+          initialIndex={currentImg} 
+          onClose={() => setLightboxOpen(false)} 
         />
       )}
     </>

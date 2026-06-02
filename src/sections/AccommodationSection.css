@@ -68,12 +68,13 @@
 /* ── Hero card ──────────────────────────────────────────────────── */
 .glamping-card-hero {
   display: grid;
-  grid-template-columns: 1.15fr 1fr;
+  grid-template-columns: 1.25fr 1fr;
   background: var(--color-bg-secondary);
   border: 1px solid var(--color-border);
-  border-radius: 20px;
+  border-radius: 24px;
   overflow: hidden;
-  height: 480px; /* fixed — all slides identical */
+  min-height: 560px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
 }
 
 /* Slide-in / slide-out animations */
@@ -119,6 +120,71 @@
 
 .glamping-card-hero:hover .glamping-hero-img {
   transform: scale(1.04);
+}
+
+/* Image navigation overlays */
+.img-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(25, 25, 25, 0.45);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  z-index: 5;
+  opacity: 0;
+  padding: 0;
+}
+
+.glamping-hero-img-wrap:hover .img-nav-btn {
+  opacity: 1;
+}
+
+.img-nav-btn:hover {
+  background: var(--color-accent);
+  color: #000;
+  border-color: var(--color-accent);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.img-nav-btn--prev { left: 20px; }
+.img-nav-btn--next { right: 20px; }
+
+.img-nav-dots {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 5;
+}
+
+.img-nav-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.25s ease;
+}
+
+.img-nav-dot.active {
+  background: var(--color-accent);
+  transform: scale(1.4);
+}
+
+.img-nav-dot:hover {
+  background: rgba(255, 255, 255, 0.9);
 }
 
 /* Tag badge */
@@ -179,10 +245,10 @@
 
 /* ── Info side ──────────────────────────────────────────────────── */
 .glamping-hero-body {
-  padding: 40px 36px;
+  padding: 56px 48px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
   height: 100%;
   overflow-y: auto;
   box-sizing: border-box;
@@ -203,7 +269,7 @@
 }
 
 .glamping-hero-name {
-  font-size: 28px;
+  font-size: 38px;
   line-height: 1.15;
 }
 
@@ -218,9 +284,9 @@
 }
 
 .glamping-hero-desc {
-  font-size: 14px;
+  font-size: 15px;
   color: var(--color-text-secondary);
-  line-height: 1.72;
+  line-height: 1.8;
   flex: 1;
 }
 
@@ -234,13 +300,13 @@
 .glamping-mini-amenity {
   display: flex;
   align-items: center;
-  gap: 5px;
-  font-size: 10px;
+  gap: 6px;
+  font-size: 11px;
   letter-spacing: 0.5px;
   color: var(--color-accent);
   background: rgba(232, 184, 73, 0.08);
   border: 1px solid rgba(232, 184, 73, 0.2);
-  padding: 5px 11px;
+  padding: 7px 14px;
   border-radius: 20px;
 }
 
@@ -256,7 +322,7 @@
 }
 
 .glamping-card-price {
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 700;
   color: var(--color-accent);
 }
@@ -264,11 +330,12 @@
 .glamping-reserve-btn {
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 12px 22px;
-  font-size: 12px;
-  letter-spacing: 1px;
-  border-radius: 10px;
+  gap: 8px;
+  padding: 16px 28px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  border-radius: 12px;
   white-space: nowrap;
 }
 
@@ -589,6 +656,12 @@
   outline: none;
   transition: border-color 0.3s ease;
   width: 100%;
+  color-scheme: dark;
+}
+
+.acc-form-group option {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-primary);
 }
 
 .acc-form-group input:focus,
@@ -653,10 +726,10 @@
   }
 
   .glamping-hero-body {
-    padding: 28px 24px 30px;
+    padding: 36px 30px;
   }
 
-  .glamping-hero-name { font-size: 22px; }
+  .glamping-hero-name { font-size: 28px; }
 
   .glamping-hero-footer {
     flex-direction: column;
@@ -716,5 +789,160 @@
   .cta-wa-btn {
     width: 100%;
     justify-content: center;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   LIGHTBOX
+   ═══════════════════════════════════════════════════════════════ */
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: lightboxIn 0.3s ease;
+}
+
+@keyframes lightboxIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2010;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+.lightbox-close:hover {
+  background: var(--color-accent);
+  color: #000;
+  border-color: var(--color-accent);
+  transform: scale(1.1);
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2010;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+.lightbox-nav:hover {
+  background: var(--color-accent);
+  color: #000;
+  border-color: var(--color-accent);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.lightbox-prev { left: 32px; }
+.lightbox-next { right: 32px; }
+
+.lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-img {
+  max-width: 100%;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  user-select: none;
+}
+
+.lightbox-counter {
+  position: absolute;
+  bottom: -36px;
+  color: rgba(255,255,255,0.7);
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+.expand-icon-btn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 44px;
+  height: 44px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.25s ease;
+  z-index: 10;
+  padding: 0;
+}
+.glamping-hero-img-wrap:hover .expand-icon-btn,
+.acc-modal-gallery:hover .expand-icon-btn {
+  opacity: 1;
+}
+.expand-icon-btn:hover {
+  background: var(--color-accent);
+  color: #000;
+  border-color: var(--color-accent);
+  transform: scale(1.1);
+}
+
+.acc-modal-gallery {
+  position: relative;
+}
+
+@media (max-width: 900px) {
+  .expand-icon-btn {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .lightbox-nav {
+    width: 44px;
+    height: 44px;
+  }
+  .lightbox-prev { left: 16px; }
+  .lightbox-next { right: 16px; }
+  .lightbox-close {
+    width: 40px;
+    height: 40px;
+    top: 16px;
+    right: 16px;
   }
 }

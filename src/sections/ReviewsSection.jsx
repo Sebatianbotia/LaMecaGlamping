@@ -11,7 +11,7 @@ const REVIEWS = [
     rating: 5,
     date: 'Marzo 2025',
     text: 'Una experiencia absolutamente mágica. Despertarse en el domo con las montañas de Guasca a tu alrededor no tiene precio. El jacuzzi al aire libre en la noche bajo las estrellas fue simplemente inolvidable.',
-    avatar: '/Comunidad/meca4.png',
+    avatar: '/suite.png',
   },
   {
     id: 2,
@@ -20,7 +20,7 @@ const REVIEWS = [
     rating: 5,
     date: 'Febrero 2025',
     text: 'Fuimos en pareja para nuestro aniversario y La Meca superó todas las expectativas. El servicio es impecable, la comida deliciosa y la naturaleza te envuelve desde el momento en que llegas. Volveremos pronto.',
-    avatar: '/Comunidad/meca5.png',
+    avatar: '/Comunidad/meca9.jpeg',
   },
   {
     id: 3,
@@ -29,7 +29,7 @@ const REVIEWS = [
     rating: 5,
     date: 'Enero 2025',
     text: 'El glamping más bonito que he visitado en Colombia. Todo está pensado al detalle, desde la decoración hasta los pequeños detalles de bienvenida. La naturaleza y el lujo en perfecta armonía.',
-    avatar: '/Comunidad/meca6.png',
+    avatar: '/suite2.png',
   },
   {
     id: 4,
@@ -38,7 +38,7 @@ const REVIEWS = [
     rating: 5,
     date: 'Diciembre 2024',
     text: 'Llegué buscando descanso y encontré mucho más. La paz del lugar, el aire frío de la montaña y la calidez del equipo humano hacen de La Meca un lugar que se queda en el corazón.',
-    avatar: '/Comunidad/meca7.png',
+    avatar: '/fogata.png',
   },
   {
     id: 5,
@@ -47,7 +47,7 @@ const REVIEWS = [
     rating: 5,
     date: 'Noviembre 2024',
     text: 'Una joya escondida en Guasca. El entorno natural es espectacular y la experiencia de dormir bajo las estrellas en el domo es algo que recomiendo a todo el mundo. ¡No lo piensen más!',
-    avatar: '/Comunidad/meca8.png',
+    avatar: '/Comunidad/meca11.PNG',
   },
 ];
 

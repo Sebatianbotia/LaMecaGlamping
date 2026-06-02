@@ -11,6 +11,8 @@ const HeroSection = () => {
         loop 
         muted 
         playsInline
+        preload="auto"
+        poster="/suite.png"
       >
         <source src="/fondo.mp4" type="video/mp4" />
       </video>
@@ -23,7 +25,10 @@ const HeroSection = () => {
           <p>El escenario perfecto en Guasca para vivir emociones reales.</p>
         </Reveal>
         <Reveal variant="fade-up" delay="580ms" duration="900ms">
-          <button className="btn-primary hero-btn">SOLICITA TU RESERVA</button>
+          <div className="hero-buttons">
+            <a href="#domos" className="btn-primary hero-btn">SOLICITAR RESERVA ALOJAMIENTO</a>
+            <a href="#contacto" className="btn-secondary hero-btn">SOLICITAR RESERVA RESTAURANTE</a>
+          </div>
         </Reveal>
       </div>
     </section>

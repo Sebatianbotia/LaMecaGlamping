@@ -1,0 +1,51 @@
+.spaces-carousel-section {
+  padding: 100px 20px;
+  background-color: var(--color-bg-alt);
+  position: relative;
+  z-index: 5;
+}
+
+.spaces-carousel-section .section-header {
+  margin-bottom: 40px;
+}
+
+.spaces-carousel-section {
+  padding: 100px 20px;
+  background-color: var(--color-bg-alt);
+  position: relative;
+  z-index: 5;
+}
+
+.spaces-carousel-section .section-header {
+  margin-bottom: 60px;
+}
+
+.spaces-marquees {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.spaces-marquee-img {
+  width: 380px; /* Slightly larger for spaces */
+  height: 300px;
+  border-radius: 20px;
+}
+
+@media (max-width: 900px) {
+  .spaces-marquee-img {
+    width: 280px;
+    height: 240px;
+  }
+}
+
+@media (max-width: 600px) {
+  .spaces-marquee-img {
+    width: 240px;
+    height: 200px;
+  }
+}
+
+/* Note: The core marquee animations and layout classes (.marquee-container, 
+   .marquee-content, .marquee-img-wrapper, .marquee-img) are defined in 
+   GastronomySection.css globally and will be reused here for consistency. */

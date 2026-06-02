@@ -11,12 +11,22 @@ const features = [
 ];
 
 const carouselImages = [
-  '/fogata.png',
-  '/Comunidad/meca9.PNG',
-  '/Comunidad/meca10.PNG',
+  '/Comunidad/meca1.png',
+  '/Comunidad/meca2.png',
+  '/Comunidad/meca3.png',
+  '/Comunidad/meca4.png',
+  '/Comunidad/meca5.png',
+  '/Comunidad/meca6.PNG',
+  '/Comunidad/meca7.PNG',
+  '/Comunidad/meca8.PNG',
+  '/Comunidad/meca9.jpeg',
+  '/Comunidad/meca10.jpeg',
+  '/Comunidad/meca11.PNG',
   '/Comunidad/meca12.PNG',
-  '/Comunidad/meca13.jpg',
-  '/Comunidad/meca11.PNG'
+  '/Comunidad/meca13.PNG',
+  '/Comunidad/meca14.jpg',
+  '/Comunidad/meca15.jpg',
+  '/Comunidad/meca16.jpg'
 ];
 
 
@@ -46,10 +56,12 @@ const RetreatSection = () => {
           </Reveal>
           <Reveal variant="fade-left" delay="240ms">
             <p>
-              En La Meca Glamping, el tiempo se detiene. Hemos diseñado un espacio
-              donde el silencio de la montaña se convierte en la banda sonora de tus
-              momentos más significativos. Un santuario para el alma diseñado para
-              vivir emociones reales.
+              La Meca Glamping es un destino creado para vivir experiencias memorables en medio de la naturaleza. Somos glamping y restaurante abierto al público, un espacio donde la gastronomía, la música, el arte y las increíbles vistas a las montañas se unen para crear momentos únicos. Creemos que cada visita debe sentirse diferente. Por eso diseñamos espacios cálidos y llenos de personalidad, donde cada detalle —la iluminación, la decoración, la música y el ambiente— transmite una energía especial. Nuestros domos ofrecen comodidad y conexión con la naturaleza, mientras que el restaurante invita a disfrutar buena comida en un entorno auténtico y acogedor.
+            </p>
+          </Reveal>
+          <Reveal variant="fade-left" delay="360ms">
+            <p>
+              La experiencia gastronómica es parte esencial de La Meca. Nos apasiona crear platos para compartir, cenas especiales y momentos que se disfrutan no solo por el sabor, sino también por el ambiente que los rodea: una conversación junto a la fogata, música acompañando la noche y una vista inolvidable de las montañas de Guasca.
             </p>
           </Reveal>
 

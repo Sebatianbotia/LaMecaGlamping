@@ -25,7 +25,7 @@ const GastronomySection = () => {
         <div className="gastronomy-intro">
           <div className="gastronomy-intro-left">
             <Reveal variant="fade-up" delay="0ms">
-              <span className="section-title-tag">ABIERTO AL PÚBLICO</span>
+              <span className="section-title-tag">ABIERTO AL PÚBLICO | RESTAURANTE CAMPESTRE, EXCLUSIVO</span>
             </Reveal>
             <Reveal variant="fade-up" delay="120ms">
               <h2>Una experiencia culinaria salvaje y refinada</h2>
@@ -33,13 +33,13 @@ const GastronomySection = () => {
           </div>
           <div className="gastronomy-intro-right">
             <Reveal variant="fade-left" delay="240ms">
-              <p>No necesitas estar hospedado para disfrutar de nuestra mesa. Combinamos la fuerza del fuego con la delicadeza de ingredientes locales para crear cortes premium y coctelería de autor en el corazón de la montaña.</p>
+              <p>El restaurante de La Meca Glamping ofrece una experiencia gastronómica única, liderada por la Chef Clau, quien durante más de 20 años ha perfeccionado una propuesta de cocina de autor donde cada plato refleja creatividad, técnica y pasión por la buena comida. Nuestra especialidad son las carnes, acompañadas de mantequillas compuestas y preparaciones creadas para resaltar sabores auténticos y memorables. Más que un restaurante, somos un espacio donde la gastronomía, la música, el arte y la naturaleza se unen para convertir cada visita en una experiencia inolvidable.</p>
             </Reveal>
             <Reveal variant="fade-left" delay="360ms">
               <div className="gastronomy-features">
-                <div className="g-feature"><Flame size={18} /> <span>Parrilla & Fuego</span></div>
-                <div className="g-feature"><Leaf size={18} /> <span>Origen Local</span></div>
-                <div className="g-feature"><Wine size={18} /> <span>Mixología</span></div>
+                <div className="g-feature"><Flame size={18} /> <span>Carnes Maduradas</span></div>
+                <div className="g-feature"><Leaf size={18} /> <span>Angus Certificado</span></div>
+                <div className="g-feature"><Wine size={18} /> <span>Cocina de Autor</span></div>
               </div>
             </Reveal>
           </div>

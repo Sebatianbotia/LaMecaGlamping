@@ -13,11 +13,10 @@ const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';  // tu Public Key
 
 const INITIAL_FORM = {
   nombre: '',
-  correo: '',
+  identificacion: '',
   telefono: '',
   fecha: '',
   personas: '2 Personas',
-  solicitud: '',
 };
 
 const ContactSection = () => {
@@ -34,8 +33,7 @@ const ContactSection = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validación básica
-    if (!form.nombre || !form.correo || !form.telefono || !form.fecha) {
+    if (!form.nombre || !form.identificacion || !form.telefono || !form.fecha) {
       setError('Por favor completa todos los campos obligatorios.');
       return;
     }
@@ -43,43 +41,39 @@ const ContactSection = () => {
     setLoading(true);
     setError('');
 
-    const templateParams = {
-      to_email: 'adrianbotia@gmail.com',
-      nombre: form.nombre,
-      correo: form.correo,
-      telefono: form.telefono,
-      fecha: form.fecha,
-      personas: form.personas,
-      solicitud: form.solicitud || 'Ninguna',
-    };
+    // Construct WhatsApp message
+    const msg = [
+      `*Solicitud Reserva de Restaurante*`,
+      ``,
+      `Hola, quisiera reservar una mesa.`,
+      `Nombre: ${form.nombre}`,
+      `Identificación: ${form.identificacion}`,
+      `Teléfono: ${form.telefono}`,
+      `Fecha: ${form.fecha}`,
+      `Personas: ${form.personas}`,
+    ].join('\n');
 
-    try {
-      // await emailjs.send(
-      //   EMAILJS_SERVICE_ID,
-      //   EMAILJS_TEMPLATE_ID,
-      //   templateParams,
-      //   EMAILJS_PUBLIC_KEY
-      // );
+    // Here we can just simulate the submit and open WhatsApp
+    setTimeout(() => {
+      setLoading(false);
+      window.open(`https://wa.me/573112340584?text=${encodeURIComponent(msg)}`, '_blank');
       setForm(INITIAL_FORM);
       setShowModal(true);
-    } catch (err) {
-      console.error('EmailJS error:', err);
-      setError('Hubo un problema al enviar tu solicitud. Inténtalo de nuevo.');
-    } finally {
-      setLoading(false);
-    }
+    }, 800);
   };
+
+  const isLargeGroup = form.personas === 'Más de 15 Personas';
 
   return (
     <>
       <section className="contact-section" id="contacto">
         <div className="container contact-container">
 
-          <Reveal variant="fade-left" delay="0ms">
+          <Reveal variant="fade-up" delay="0ms">
             <div className="contact-form-wrapper">
               <div className="contact-header">
-                <h2>Empieza tu historia</h2>
-                <p>Completa tus datos y nos pondremos en contacto para coordinar tu estancia ideal.</p>
+                <h2>Reserva tu mesa</h2>
+                <p>Asegura tu lugar en nuestro exclusivo restaurante campestre. Déjanos tus datos para coordinar.</p>
               </div>
 
               <form className="booking-form" onSubmit={handleSubmit} noValidate>
@@ -97,13 +91,13 @@ const ContactSection = () => {
                     />
                   </div>
                   <div className="form-group">
-                    <label htmlFor="correo">CORREO ELECTRÓNICO</label>
+                    <label htmlFor="identificacion">IDENTIFICACIÓN</label>
                     <input
-                      id="correo"
-                      name="correo"
-                      type="email"
-                      placeholder="tu@email.com"
-                      value={form.correo}
+                      id="identificacion"
+                      name="identificacion"
+                      type="text"
+                      placeholder="Número de documento"
+                      value={form.identificacion}
                       onChange={handleChange}
                       required
                     />
@@ -124,7 +118,7 @@ const ContactSection = () => {
                     />
                   </div>
                   <div className="form-group">
-                    <label htmlFor="fecha">FECHA DE ESTADÍA</label>
+                    <label htmlFor="fecha">FECHA DE RESERVA</label>
                     <input
                       id="fecha"
                       name="fecha"
@@ -136,76 +130,58 @@ const ContactSection = () => {
                   </div>
                 </div>
 
-                <div className="form-row">
-                  <div className="form-group">
-                    <label htmlFor="personas">NÚMERO DE PERSONAS</label>
-                    <select
-                      id="personas"
-                      name="personas"
-                      value={form.personas}
-                      onChange={handleChange}
-                    >
-                      <option>2 Personas</option>
-                      <option>3 Personas</option>
-                      <option>4 Personas</option>
-                    </select>
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="solicitud">SOLICITUD ESPECIAL</label>
-                    <input
-                      id="solicitud"
-                      name="solicitud"
-                      type="text"
-                      placeholder="¿Aniversario o alguna sorpresa?"
-                      value={form.solicitud}
-                      onChange={handleChange}
-                    />
-                  </div>
+                <div className="form-group">
+                  <label htmlFor="personas">NÚMERO DE PERSONAS</label>
+                  <select
+                    id="personas"
+                    name="personas"
+                    value={form.personas}
+                    onChange={handleChange}
+                  >
+                    <option>2 Personas</option>
+                    <option>3 Personas</option>
+                    <option>4 Personas</option>
+                    <option>5 a 15 Personas</option>
+                    <option>Más de 15 Personas</option>
+                  </select>
                 </div>
 
                 {error && <p className="form-error">{error}</p>}
 
-                <button
-                  type="submit"
-                  className="btn-primary form-submit-btn"
-                  disabled={loading}
-                >
-                  {loading ? (
-                    <span className="btn-loading">
-                      <span className="spinner" />
-                      ENVIANDO...
-                    </span>
-                  ) : (
-                    'CONFIRMAR SOLICITUD DE RESERVA'
-                  )}
-                </button>
+                {isLargeGroup ? (
+                  <div className="large-group-warning">
+                    <p style={{ color: 'var(--color-accent)', marginBottom: '16px', fontSize: '14px' }}>
+                      Para grupos de más de 15 personas es obligatorio realizar la reserva directamente con uno de nuestros asesores para garantizar la mejor experiencia.
+                    </p>
+                    <a
+                      href="https://wa.me/573112340584?text=Hola,%20quisiera%20cotizar%20una%20reserva%20para%20un%20grupo%20grande%20en%20el%20restaurante."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-primary form-submit-btn"
+                      style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none' }}
+                    >
+                      <MessageCircle size={18} style={{ marginRight: '8px' }} /> HABLAR CON UN ASESOR
+                    </a>
+                  </div>
+                ) : (
+                  <button
+                    type="submit"
+                    className="btn-primary form-submit-btn"
+                    disabled={loading}
+                  >
+                    {loading ? (
+                      <span className="btn-loading">
+                        <span className="spinner" />
+                        ENVIANDO...
+                      </span>
+                    ) : (
+                      'CONFIRMAR RESERVA POR WHATSAPP'
+                    )}
+                  </button>
+                )}
               </form>
             </div>
           </Reveal>
-
-          <Reveal variant="fade-right" delay="200ms">
-            <div className="contact-map-wrapper">
-              <span className="section-title-tag">UBICACIÓN</span>
-              <h2>Cómo llegar al cielo</h2>
-              <p className="location-desc">Guasca, Cundinamarca — Vereda Santa Bárbara</p>
-
-              <button className="btn-primary map-btn">
-                ABRIR EN GOOGLE MAPS <Navigation size={14} className="icon-ml" />
-              </button>
-
-              <div className="map-container">
-                <div className="map-content">
-                  <MapPin size={40} color="#E8B849" />
-                  <div className="map-label">LA MECA GLAMPING, GUASCA</div>
-                </div>
-                <div className="map-controls">
-                  <button className="map-control-btn"><Plus size={16} /></button>
-                  <button className="map-control-btn"><Minus size={16} /></button>
-                </div>
-              </div>
-            </div>
-          </Reveal>
-
         </div>
       </section>
 

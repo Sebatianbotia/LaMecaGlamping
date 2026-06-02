@@ -1,6 +1,8 @@
-/* ── Only visible on mobile ──────────────────────────────────────────── */
+/* ── Carousel Container ──────────────────────────────────────────── */
 .carousel {
-  display: none;
+  display: block;
+  position: relative;
+  width: 100%;
 }
 
 @media (max-width: 900px) {
@@ -9,11 +11,8 @@
   .food-grid {
     display: none !important;
   }
+}
 
-  .carousel {
-    display: block;
-    position: relative;
-  }
 
   /* ── Slide track: horizontal scroll-snap ───────────────────────────── */
   .carousel__track {
@@ -70,4 +69,3 @@
     background: var(--color-accent);
     transform: scale(1.35);
   }
-}
