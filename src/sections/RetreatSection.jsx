@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Sparkles, Flame, Gem, MapPin } from 'lucide-react';
+import { Sparkles, Flame, Gem, MapPin, PawPrint } from 'lucide-react';
 import Reveal from '../components/Reveal';
 import './RetreatSection.css';
 
@@ -8,6 +8,7 @@ const features = [
   { Icon: Flame, label: 'FOGATAS PRIVADAS' },
   { Icon: Gem, label: 'EXCLUSIVIDAD' },
   { Icon: MapPin, label: 'A 1 HORA DE BOGOTÁ' },
+  { Icon: PawPrint, label: 'PET FRIENDLY' },
 ];
 
 const carouselImages = [

@@ -45,7 +45,6 @@ const GastronomySection = () => {
           </div>
         </div>
 
-        {/* ── Infinite Loop Carousel ──────────────────────────────────── */}
         <div className="gastronomy-marquees">
           <div className="marquee-container">
             <div className="marquee-content left">

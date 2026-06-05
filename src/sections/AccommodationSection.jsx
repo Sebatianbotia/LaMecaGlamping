@@ -2,10 +2,46 @@ import React, { useState, useEffect } from 'react';
 import {
   Bath, ThermometerSun, Tent, Waves, Users, Moon,
   Star, X, CalendarDays, MessageCircle, Maximize,
-  Sparkles, ArrowRight, Dog, ChevronLeft, ChevronRight
+  Sparkles, ArrowRight, Dog, ChevronLeft, ChevronRight, Tag
 } from 'lucide-react';
 import Reveal from '../components/Reveal';
 import './AccommodationSection.css';
+
+// ── Weekday pricing hook ──────────────────────────────────────────
+const BASE_PRICE = 450000;
+const WEEKDAY_DISCOUNT = 0.20;
+
+function useWeekdayPricing() {
+  const [isWeekday, setIsWeekday] = useState(false);
+
+  useEffect(() => {
+    const check = () => {
+      const day = new Date().getDay(); // 0=Sun, 1=Mon … 6=Sat
+      setIsWeekday(day >= 1 && day <= 5); // Mon–Fri
+    };
+    check();
+    // Re-evaluate at midnight (in case the tab stays open overnight)
+    const now = new Date();
+    const msUntilMidnight =
+      new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1).getTime() - now.getTime();
+    const midnight = setTimeout(() => { check(); }, msUntilMidnight);
+    return () => clearTimeout(midnight);
+  }, []);
+
+  const discountedPrice = Math.round(BASE_PRICE * (1 - WEEKDAY_DISCOUNT));
+
+  return {
+    isWeekday,
+    basePrice: BASE_PRICE,
+    discountedPrice,
+    displayPrice: isWeekday ? discountedPrice : BASE_PRICE,
+    formattedBase: `$${BASE_PRICE.toLocaleString('es-CO')}`,
+    formattedDiscounted: `$${discountedPrice.toLocaleString('es-CO')}`,
+    formattedDisplay: isWeekday
+      ? `$${discountedPrice.toLocaleString('es-CO')}`
+      : `$${BASE_PRICE.toLocaleString('es-CO')}`,
+  };
+}
 
 const GLAMPINGS = [
   {
@@ -15,10 +51,9 @@ const GLAMPINGS = [
     tagColor: 'gold',
     image: '/glamping/glam1.jpg',
     images: ['/glamping/glam1.jpg', '/glamping/glam6.jpg', '/glamping/glam3.jpg', '/glamping/glam4.jpg', '/glamping/bano.jpg'],
-    price: 'Desde $380.000 / noche',
     capacity: 'Hasta 4 personas',
     description:
-      'Contamos con 2 glampings: Patrón 70 y Don Julio. Vive una experiencia de descanso única en nuestros exclusivos domos geodésicos termoacondicionados, combinando confort, privacidad y naturaleza. Equipado con cama doble, sofá, baño privado de gran tamaño y amplia terraza. Relájate en nuestro jacuzzi panorámico climatizado para 4 personas contemplando la increíble vista a las montañas.\n\nTarifas: Pareja fin de semana $470.000. Entre semana desde $380.000. Persona adicional $50.000.',
+      'Contamos con 2 glampings: Patrón 70 y Don Julio. Vive una experiencia de descanso única en nuestros exclusivos domos geodésicos termoacondicionados, combinando confort, privacidad y naturaleza. Equipado con cama doble, sofá, baño privado de gran tamaño y amplia terraza. Relájate en nuestro jacuzzi panorámico climatizado para 4 personas contemplando la increíble vista a las montañas.\n\nPersona adicional $50.000.',
     amenities: [
       { Icon: Bath, label: 'Baño gran tamaño' },
       { Icon: ThermometerSun, label: 'Termoacondicionado' },
@@ -319,6 +354,7 @@ const AccommodationSection = () => {
   const [selectedGlamping, setSelectedGlamping] = useState(null);
   const [currentImg, setCurrentImg] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const pricing = useWeekdayPricing();
 
   const glamping = GLAMPINGS[0];
 
@@ -405,6 +441,25 @@ const AccommodationSection = () => {
                     </span>
                   </div>
 
+                  {/* ── Weekday discount banner (always visible) ── */}
+                  <div className="weekday-discount-banner">
+                    <Tag size={14} className="weekday-discount-icon" />
+                    <div className="weekday-discount-text">
+                      <span className="weekday-discount-title">20% de descuento entre semana</span>
+                      <span className="weekday-discount-sub">
+                        Lun–Vie&nbsp;
+                        <strong>{pricing.formattedDiscounted}</strong>
+                        &nbsp;·&nbsp;Fin de semana&nbsp;
+                        <strong>{pricing.formattedBase}</strong>
+                        &nbsp;/ noche
+                      </span>
+                    </div>
+                    {pricing.isWeekday
+                      ? <span className="weekday-discount-badge weekday-discount-badge--active">ACTIVO HOY</span>
+                      : <span className="weekday-discount-badge weekday-discount-badge--inactive">Lun – Vie</span>
+                    }
+                  </div>
+
                   <p className="glamping-hero-desc">{glamping.description}</p>
 
                   <div className="glamping-hero-amenities">
@@ -416,7 +471,18 @@ const AccommodationSection = () => {
                   </div>
 
                   <div className="glamping-hero-footer">
-                    <span className="glamping-card-price">{glamping.price}</span>
+                    <div className="glamping-price-block">
+                      {pricing.isWeekday && (
+                        <span className="glamping-price-original">{pricing.formattedBase}</span>
+                      )}
+                      <span className={`glamping-card-price${pricing.isWeekday ? ' is-discounted' : ''}`}>
+                        {pricing.formattedDisplay}
+                        <span className="glamping-price-unit"> / noche</span>
+                      </span>
+                      {!pricing.isWeekday && (
+                        <span className="glamping-price-note">Fin de semana</span>
+                      )}
+                    </div>
                     <button
                       className="btn-primary glamping-reserve-btn"
                       onClick={() => setSelectedGlamping(glamping)}
