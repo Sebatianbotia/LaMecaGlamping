@@ -13,7 +13,7 @@
   background-color: rgba(19, 19, 19, 0.95);
   backdrop-filter: blur(10px);
   padding: 15px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(85, 107, 47, 0.5); /* Subtle olive */
 }
 
 .navbar-container {

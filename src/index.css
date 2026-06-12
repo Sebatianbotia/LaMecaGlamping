@@ -3,6 +3,7 @@
   --color-bg-secondary: #1a1a1a;
   --color-accent: #E8B849;
   --color-accent-hover: #d1a135;
+  --color-olive: #556B2F;
   --color-text-primary: #ffffff;
   --color-text-secondary: #aaaaaa;
   --color-text-muted: #777777;
@@ -109,6 +110,7 @@ button {
 .btn-outline:hover {
   border-color: var(--color-accent);
   color: var(--color-accent);
+  box-shadow: 0 4px 12px rgba(85, 107, 47, 0.3);
 }
 
 .section-title {
@@ -123,6 +125,18 @@ button {
   color: var(--color-accent);
   margin-bottom: 12px;
   display: block;
+  position: relative;
+}
+
+.section-title-tag::after {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: var(--color-olive);
+  margin: 8px auto 0;
+  opacity: 0.8;
+  border-radius: 2px;
 }
 
 .section-title h2 {
