@@ -50,7 +50,7 @@ const GLAMPINGS = [
     tag: 'MÁS POPULARES',
     tagColor: 'gold',
     image: '/glamping/glam1.jpg',
-    images: ['/glamping/glam1.jpg', '/glamping/glam6.jpg', '/glamping/glam3.jpg', '/glamping/glam4.jpg', '/glamping/bano.jpg'],
+    images: ['/glamping/glam1.jpg', '/glamping/glam6.jpg', '/glamping/glam3.jpg', '/glamping/glam4.jpg'],
     capacity: 'Hasta 4 personas',
     description:
       'Contamos con 2 glampings: Patrón 70 y Don Julio. Vive una experiencia de descanso única en nuestros exclusivos domos geodésicos termoacondicionados, combinando confort, privacidad y naturaleza. Equipado con cama doble, sofá, baño privado de gran tamaño y amplia terraza. Relájate en nuestro jacuzzi panorámico climatizado para 4 personas contemplando la increíble vista a las montañas.\n\nPersona adicional $50.000.',
@@ -73,6 +73,7 @@ const INITIAL_FORM = {
   checkin: '',
   checkout: '',
   personas: '2 Personas',
+  glamping_choice: 'Patrón 70',
   solicitud: '',
 };
 
@@ -80,7 +81,7 @@ function buildWhatsAppUrl(glamping, form) {
   const msg = [
     `*Solicitud de Reserva - La Meca Glamping*`,
     ``,
-    `Hola, me interesa reservar el *${glamping.name}*.`,
+    `Hola, me interesa reservar el *Glamping ${form.glamping_choice}*.`,
     ``,
     `*Mis datos:*`,
     `Nombre: ${form.nombre}`,
@@ -303,18 +304,33 @@ const GlampingModal = ({ glamping, onClose }) => {
                 </div>
               </div>
 
-              <div className="acc-form-group">
-                <label htmlFor="acc-personas">NÚMERO DE PERSONAS</label>
-                <select
-                  id="acc-personas"
-                  name="personas"
-                  value={form.personas}
-                  onChange={handleChange}
-                >
-                  <option>2 Personas</option>
-                  <option>3 Personas</option>
-                  <option>4 Personas</option>
-                </select>
+              <div className="acc-form-row">
+                <div className="acc-form-group">
+                  <label htmlFor="acc-glamping-choice">GLAMPING</label>
+                  <select
+                    id="acc-glamping-choice"
+                    name="glamping_choice"
+                    value={form.glamping_choice}
+                    onChange={handleChange}
+                  >
+                    <option>Patrón 70</option>
+                    <option>Don Julio</option>
+                  </select>
+                </div>
+
+                <div className="acc-form-group">
+                  <label htmlFor="acc-personas">NÚMERO DE PERSONAS</label>
+                  <select
+                    id="acc-personas"
+                    name="personas"
+                    value={form.personas}
+                    onChange={handleChange}
+                  >
+                    <option>2 Personas</option>
+                    <option>3 Personas</option>
+                    <option>4 Personas</option>
+                  </select>
+                </div>
               </div>
 
               <div className="acc-form-group">
@@ -519,10 +535,10 @@ const AccommodationSection = () => {
         />
       )}
       {lightboxOpen && (
-        <Lightbox 
-          images={glamping.images} 
-          initialIndex={currentImg} 
-          onClose={() => setLightboxOpen(false)} 
+        <Lightbox
+          images={glamping.images}
+          initialIndex={currentImg}
+          onClose={() => setLightboxOpen(false)}
         />
       )}
     </>

@@ -16,7 +16,7 @@ const Footer = () => {
               El escenario perfecto en Guasca para vivir emociones reales. Un santuario celestial diseñado para el alma.
             </p>
           </div>
-          
+
           <div className="footer-col">
             <h4 className="footer-title">UBICACIÓN</h4>
             <ul className="footer-links">
@@ -24,7 +24,7 @@ const Footer = () => {
               <li>A 1 hora de Bogotá</li>
             </ul>
           </div>
-          
+
           <div className="footer-col">
             <h4 className="footer-title">CONTACTO</h4>
             <ul className="footer-links">
@@ -32,7 +32,7 @@ const Footer = () => {
               <li>WhatsApp: +57 311 234 0584</li>
             </ul>
           </div>
-          
+
           <div className="footer-col">
             <h4 className="footer-title">LEGAL</h4>
             <ul className="footer-links">
@@ -41,9 +41,9 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        
+
         <div className="footer-divider"></div>
-        
+
         <div className="footer-bottom">
           <div className="footer-social">
             <a href="https://www.instagram.com/lamecaglamping/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
@@ -60,7 +60,7 @@ const Footer = () => {
             </a>
           </div>
           <div className="footer-copyright">
-            &copy; {new Date().getFullYear()} LA MECA GLAMPING. DESARROLLADO POR ZOWL WEB DESIGN.
+            &copy; {new Date().getFullYear()} LA MECA GLAMPING. DESARROLLADO POR <a href="https://zowlwebdesign.netlify.app/" target="_blank" rel="noopener noreferrer" className='zowl'>ZOWL WEB DESIGN</a>.
           </div>
         </div>
       </div>

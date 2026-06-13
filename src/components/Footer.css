@@ -1,8 +1,15 @@
 .footer-section {
   position: relative;
-  z-index: 2; /* Sits above the star canvas */
-  background-color: #0d0d0d; /* Slightly darker than main bg to anchor the page */
+  z-index: 2;
+  /* Sits above the star canvas */
+  background-color: #0d0d0d;
+  /* Slightly darker than main bg to anchor the page */
   padding: 80px 0 40px;
+}
+
+.zowl {
+  color: var(--color-accent);
+
 }
 
 .footer-top {
@@ -115,9 +122,11 @@
     flex-direction: column;
     gap: 50px;
   }
+
   .brand-col {
     padding-right: 0;
   }
+
   .footer-bottom {
     flex-direction: column;
     justify-content: center;

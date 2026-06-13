@@ -1,5 +1,5 @@
-import React from 'react';
-import { Flame, Leaf, Wine } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Flame, Leaf, Wine, X, ChevronLeft, ChevronRight, Maximize } from 'lucide-react';
 import Reveal from '../components/Reveal';
 import './GastronomySection.css';
 
@@ -18,7 +18,60 @@ const carouselImages = [
   { src: '/restaurante/steak3.png', alt: 'Carne en plato' },
 ];
 
+const Lightbox = ({ images, initialIndex, onClose }) => {
+  const [currentIndex, setCurrentIndex] = useState(initialIndex);
+
+  const goPrev = (e) => {
+    e.stopPropagation();
+    setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  };
+
+  const goNext = (e) => {
+    e.stopPropagation();
+    setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  };
+
+  const handleClose = (e) => {
+    e.stopPropagation();
+    onClose();
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') onClose();
+      if (e.key === 'ArrowLeft') {
+        setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+      }
+      if (e.key === 'ArrowRight') {
+        setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [images.length, onClose]);
+
+  return (
+    <div className="lightbox-overlay" onClick={handleClose}>
+      <button className="lightbox-close" onClick={handleClose} aria-label="Cerrar"><X size={24} /></button>
+      <button className="lightbox-nav lightbox-prev" onClick={goPrev} aria-label="Anterior"><ChevronLeft size={32} /></button>
+      <button className="lightbox-nav lightbox-next" onClick={goNext} aria-label="Siguiente"><ChevronRight size={32} /></button>
+      <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
+        <img src={images[currentIndex]} alt="Fullscreen view" className="lightbox-img" />
+        <div className="lightbox-counter">{currentIndex + 1} / {images.length}</div>
+      </div>
+    </div>
+  );
+};
+
 const GastronomySection = () => {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [activeImg, setActiveImg] = useState(0);
+
+  const openGallery = (index) => {
+    setActiveImg(index);
+    setLightboxOpen(true);
+  };
+
   return (
     <section className="gastronomy-section" id="gastronomia">
       <div className="container">
@@ -41,6 +94,10 @@ const GastronomySection = () => {
                 <div className="g-feature"><Leaf size={18} /> <span>Angus Certificado</span></div>
                 <div className="g-feature"><Wine size={18} /> <span>Cocina de Autor</span></div>
               </div>
+              <button className="btn-outline" style={{ marginTop: '24px' }} onClick={() => openGallery(0)}>
+                <Maximize size={14} style={{ display: 'inline', marginRight: '8px', verticalAlign: 'middle' }} />
+                VER GALERÍA COMPLETA
+              </button>
             </Reveal>
           </div>
         </div>
@@ -48,20 +105,26 @@ const GastronomySection = () => {
         <div className="gastronomy-marquees">
           <div className="marquee-container">
             <div className="marquee-content left">
-              {[...carouselImages.slice(0, 6), ...carouselImages.slice(0, 6)].map((img, i) => (
-                <div key={i} className="marquee-img-wrapper">
-                  <img src={img.src} alt={img.alt} className="marquee-img" loading="lazy" />
-                </div>
-              ))}
+              {[...carouselImages.slice(0, 6), ...carouselImages.slice(0, 6)].map((img, i) => {
+                const realIndex = i % 6;
+                return (
+                  <div key={i} className="marquee-img-wrapper" onClick={() => openGallery(realIndex)} style={{ cursor: 'pointer' }}>
+                    <img src={img.src} alt={img.alt} className="marquee-img" loading="lazy" />
+                  </div>
+                );
+              })}
             </div>
           </div>
           <div className="marquee-container">
             <div className="marquee-content right">
-              {[...carouselImages.slice(6), ...carouselImages.slice(6), ...carouselImages.slice(6)].map((img, i) => (
-                <div key={i} className="marquee-img-wrapper">
-                  <img src={img.src} alt={img.alt} className="marquee-img" loading="lazy" />
-                </div>
-              ))}
+              {[...carouselImages.slice(6), ...carouselImages.slice(6), ...carouselImages.slice(6)].map((img, i) => {
+                const realIndex = 6 + (i % 5);
+                return (
+                  <div key={i} className="marquee-img-wrapper" onClick={() => openGallery(realIndex)} style={{ cursor: 'pointer' }}>
+                    <img src={img.src} alt={img.alt} className="marquee-img" loading="lazy" />
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -74,15 +137,21 @@ const GastronomySection = () => {
             </div>
             <div className="action-buttons">
               <a className="btn-primary"
-                href={`https://wa.me/573112340584?text=${encodeURIComponent(`Hola, quisiera reservar una mesa`)}`}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#contacto"
               >RESERVAR MESA</a>
               <a href="/MENU.pdf" target="_blank" rel="noopener noreferrer" className="btn-outline">VER MENÚ DIGITAL</a>
             </div>
           </div>
         </Reveal>
       </div>
+
+      {lightboxOpen && (
+        <Lightbox
+          images={carouselImages.map(img => img.src)}
+          initialIndex={activeImg}
+          onClose={() => setLightboxOpen(false)}
+        />
+      )}
     </section>
   );
 };
