@@ -137,7 +137,7 @@ const GastronomySection = () => {
             </div>
             <div className="action-buttons">
               <a className="btn-primary"
-                href="#contacto"
+                href="#reserva-mesa"
               >RESERVAR MESA</a>
               <a href="/MENU.pdf" target="_blank" rel="noopener noreferrer" className="btn-outline">VER MENÚ DIGITAL</a>
             </div>

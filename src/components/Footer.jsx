@@ -4,7 +4,7 @@ import './Footer.css';
 
 const Footer = () => {
   return (
-    <footer className="footer-section">
+    <footer className="footer-section" id="contacto">
       <div className="container">
         <div className="footer-top">
           <div className="footer-col brand-col">
@@ -30,14 +30,6 @@ const Footer = () => {
             <ul className="footer-links">
               <li>lamecaglamping@gmail.com</li>
               <li>WhatsApp: +57 311 234 0584</li>
-            </ul>
-          </div>
-
-          <div className="footer-col">
-            <h4 className="footer-title">LEGAL</h4>
-            <ul className="footer-links">
-              <li><a href="#privacidad">Políticas de Privacidad</a></li>
-              <li><a href="#terminos">Términos y Condiciones</a></li>
             </ul>
           </div>
         </div>

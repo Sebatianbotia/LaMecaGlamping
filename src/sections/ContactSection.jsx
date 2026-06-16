@@ -66,7 +66,7 @@ const ContactSection = () => {
 
   return (
     <>
-      <section className="contact-section" id="contacto">
+      <section className="contact-section" id="reserva-mesa">
         <div className="container contact-container">
 
           <Reveal variant="fade-up" delay="0ms">

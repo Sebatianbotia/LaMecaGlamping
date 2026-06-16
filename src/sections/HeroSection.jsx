@@ -25,7 +25,7 @@ const HeroSection = () => {
         <Reveal variant="fade-up" delay="580ms" duration="900ms">
           <div className="hero-buttons">
             <a href="#domos" className="btn-primary hero-btn">SOLICITAR RESERVA ALOJAMIENTO</a>
-            <a href="#contacto" className="btn-secondary hero-btn">SOLICITAR RESERVA RESTAURANTE</a>
+            <a href="#reserva-mesa" className="btn-secondary hero-btn">SOLICITAR RESERVA RESTAURANTE</a>
           </div>
         </Reveal>
       </div>
