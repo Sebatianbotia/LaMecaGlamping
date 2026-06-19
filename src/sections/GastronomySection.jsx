@@ -56,7 +56,7 @@ const Lightbox = ({ images, initialIndex, onClose }) => {
       <button className="lightbox-nav lightbox-prev" onClick={goPrev} aria-label="Anterior"><ChevronLeft size={32} /></button>
       <button className="lightbox-nav lightbox-next" onClick={goNext} aria-label="Siguiente"><ChevronRight size={32} /></button>
       <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
-        <img src={images[currentIndex]} alt="Fullscreen view" className="lightbox-img" />
+        <img src={images[currentIndex]} alt={`Plato del restaurante La Meca Glamping ${currentIndex + 1}`} className="lightbox-img" />
         <div className="lightbox-counter">{currentIndex + 1} / {images.length}</div>
       </div>
     </div>
@@ -81,7 +81,7 @@ const GastronomySection = () => {
               <span className="section-title-tag">ABIERTO AL PÚBLICO | RESTAURANTE CAMPESTRE, EXCLUSIVO</span>
             </Reveal>
             <Reveal variant="fade-up" delay="120ms">
-              <h2>Una experiencia culinaria salvaje y refinada</h2>
+              <h2>Restaurante Campestre en Guasca — Cocina de Autor &amp; Carnes Maduradas</h2>
             </Reveal>
           </div>
           <div className="gastronomy-intro-right">

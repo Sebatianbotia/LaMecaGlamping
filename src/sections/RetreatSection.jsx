@@ -53,7 +53,7 @@ const RetreatSection = () => {
             <span className="section-title-tag">QUIENES SOMOS</span>
           </Reveal>
           <Reveal variant="fade-left" delay="120ms">
-            <h2>Un refugio para desconectar y volver a conectar</h2>
+            <h2>Un refugio para desconectar en Guasca, Cundinamarca</h2>
           </Reveal>
           <Reveal variant="fade-left" delay="240ms">
             <p>

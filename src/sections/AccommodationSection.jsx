@@ -693,7 +693,7 @@ const AccommodationSection = () => {
           <Reveal variant="fade-up" delay="0ms">
             <div className="accommodation-header">
               <span className="section-title-tag">ALOJAMIENTO</span>
-              <h2>Elige tu refugio</h2>
+              <h2>Glamping con Jacuzzi en Guasca — Domos Geodésicos Exclusivos</h2>
               <p className="accommodation-subtitle">
                 Cada glamping en La Meca es un mundo propio. Escoge el que más resuene contigo
                 y vive una noche que no olvidarás.

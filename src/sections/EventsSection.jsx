@@ -13,7 +13,7 @@ const EventsSection = () => {
               <span className="section-title-tag">CELEBRA CON NOSOTROS</span>
             </Reveal>
             <Reveal variant="fade-up" delay="120ms">
-              <h2>Eventos Inolvidables en la Montaña</h2>
+              <h2>Eventos y Celebraciones Privadas en Guasca, Cundinamarca</h2>
             </Reveal>
             <Reveal variant="fade-up" delay="240ms">
               <p>
@@ -64,10 +64,10 @@ const EventsSection = () => {
 
           <div className="events-images">
             <Reveal variant="fade-left" delay="200ms" className="ei-wrapper ei-main">
-              <img src="/restaurante/local2.jpg" alt="Eventos en La Meca" />
+              <img src="/restaurante/local2.jpg" alt="Interior del Restaurante La Meca Glamping para eventos privados en Guasca" />
             </Reveal>
             <Reveal variant="fade-up" delay="400ms" className="ei-wrapper ei-secondary">
-              <img src="/Comunidad/meca3.png" alt="Celebración exclusiva" />
+              <img src="/Comunidad/meca3.png" alt="Celebración exclusiva en La Meca Glamping, Cundinamarca" />
             </Reveal>
           </div>
         </div>
