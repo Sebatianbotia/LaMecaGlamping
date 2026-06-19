@@ -52,6 +52,7 @@ const Navbar = () => {
           {NAV_LINKS.map(link => (
             <a key={link.href} href={link.href}>{link.label}</a>
           ))}
+          <a href="/MENU.pdf" target="_blank" rel="noopener noreferrer" className="nav-menu-btn" style={{color: 'var(--color-accent)', fontWeight: 'bold'}}>VER MENÚ</a>
         </div>
 
         {/* Mobile Hamburger Icon */}
@@ -68,6 +69,9 @@ const Navbar = () => {
               {link.label}
             </a>
           ))}
+          <a href="/MENU.pdf" target="_blank" rel="noopener noreferrer" onClick={closeMenu} className="mobile-nav-link" style={{color: 'var(--color-accent)', fontWeight: 'bold'}}>
+            VER MENÚ DIGITAL
+          </a>
         </div>
       </div>
     </nav>

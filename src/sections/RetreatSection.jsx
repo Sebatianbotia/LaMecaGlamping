@@ -57,7 +57,7 @@ const RetreatSection = () => {
           </Reveal>
           <Reveal variant="fade-left" delay="240ms">
             <p>
-              La Meca Glamping es un destino creado para vivir experiencias memorables en medio de la naturaleza. Somos glamping y restaurante abierto al público, un espacio donde la gastronomía, la música, el arte y las increíbles vistas a las montañas se unen para crear momentos únicos. Creemos que cada visita debe sentirse diferente. Por eso diseñamos espacios cálidos y llenos de personalidad, donde cada detalle —la iluminación, la decoración, la música y el ambiente— transmite una energía especial. Nuestros domos ofrecen comodidad y conexión con la naturaleza, mientras que el restaurante invita a disfrutar buena comida en un entorno auténtico y acogedor.
+              La Meca Glamping es un destino creado para vivir experiencias memorables en medio de la naturaleza. Somos glamping y restaurante abierto al público, un espacio donde la gastronomía, la música, el arte y las increíbles vistas a las montañas se unen para crear momentos únicos. Creemos que cada visita debe sentirse diferente. Por eso diseñamos espacios cálidos y llenos de personalidad, donde cada detalle: la iluminación, la decoración, la música y el ambiente, transmite una energía especial. Nuestros domos ofrecen comodidad y conexión con la naturaleza, mientras que el restaurante invita a disfrutar buena comida en un entorno auténtico y acogedor.
             </p>
           </Reveal>
           <Reveal variant="fade-left" delay="360ms">

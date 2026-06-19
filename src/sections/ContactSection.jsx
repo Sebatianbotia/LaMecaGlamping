@@ -16,6 +16,7 @@ const INITIAL_FORM = {
   identificacion: '',
   telefono: '',
   fecha: '',
+  hora: '',
   personas: '2 Personas',
 };
 
@@ -33,7 +34,7 @@ const ContactSection = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!form.nombre || !form.identificacion || !form.telefono || !form.fecha) {
+    if (!form.nombre || !form.identificacion || !form.telefono || !form.fecha || !form.hora) {
       setError('Por favor completa todos los campos obligatorios.');
       return;
     }
@@ -50,13 +51,14 @@ const ContactSection = () => {
       `Identificación: ${form.identificacion}`,
       `Teléfono: ${form.telefono}`,
       `Fecha: ${form.fecha}`,
+      `Hora: ${form.hora}`,
       `Personas: ${form.personas}`,
     ].join('\n');
 
     // Here we can just simulate the submit and open WhatsApp
     setTimeout(() => {
       setLoading(false);
-      window.open(`https://wa.me/573112340584?text=${encodeURIComponent(msg)}`, '_blank');
+      window.open(`https://wa.me/573214490484?text=${encodeURIComponent(msg)}`, '_blank');
       setForm(INITIAL_FORM);
       setShowModal(true);
     }, 800);
@@ -130,20 +132,33 @@ const ContactSection = () => {
                   </div>
                 </div>
 
-                <div className="form-group">
-                  <label htmlFor="personas">NÚMERO DE PERSONAS</label>
-                  <select
-                    id="personas"
-                    name="personas"
-                    value={form.personas}
-                    onChange={handleChange}
-                  >
-                    <option>2 Personas</option>
-                    <option>3 Personas</option>
-                    <option>4 Personas</option>
-                    <option>5 a 15 Personas</option>
-                    <option>Más de 15 Personas</option>
-                  </select>
+                <div className="form-row">
+                  <div className="form-group">
+                    <label htmlFor="hora">HORA</label>
+                    <input
+                      id="hora"
+                      name="hora"
+                      type="time"
+                      value={form.hora}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="personas">NÚMERO DE PERSONAS</label>
+                    <select
+                      id="personas"
+                      name="personas"
+                      value={form.personas}
+                      onChange={handleChange}
+                    >
+                      <option>2 Personas</option>
+                      <option>3 Personas</option>
+                      <option>4 Personas</option>
+                      <option>5 a 15 Personas</option>
+                      <option>Más de 15 Personas</option>
+                    </select>
+                  </div>
                 </div>
 
                 {error && <p className="form-error">{error}</p>}
@@ -154,7 +169,7 @@ const ContactSection = () => {
                       Para grupos de más de 15 personas es obligatorio realizar la reserva directamente con uno de nuestros asesores para garantizar la mejor experiencia.
                     </p>
                     <a
-                      href="https://wa.me/573112340584?text=Hola,%20quisiera%20cotizar%20una%20reserva%20para%20un%20grupo%20grande%20en%20el%20restaurante."
+                      href="https://wa.me/573214490484?text=Hola,%20quisiera%20cotizar%20una%20reserva%20para%20un%20grupo%20grande%20en%20el%20restaurante."
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn-primary form-submit-btn"

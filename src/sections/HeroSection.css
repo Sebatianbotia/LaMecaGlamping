@@ -102,4 +102,7 @@
   .hero-content p {
     font-size: 16px;
   }
+  .hero-logo {
+    transform: none;
+  }
 }

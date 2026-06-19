@@ -94,10 +94,15 @@ const GastronomySection = () => {
                 <div className="g-feature"><Leaf size={18} /> <span>Angus Certificado</span></div>
                 <div className="g-feature"><Wine size={18} /> <span>Cocina de Autor</span></div>
               </div>
-              <button className="btn-outline" style={{ marginTop: '24px' }} onClick={() => openGallery(0)}>
-                <Maximize size={14} style={{ display: 'inline', marginRight: '8px', verticalAlign: 'middle' }} />
-                VER GALERÍA COMPLETA
-              </button>
+              <div style={{ display: 'flex', gap: '16px', marginTop: '24px', flexWrap: 'wrap' }}>
+                <button className="btn-outline" onClick={() => openGallery(0)}>
+                  <Maximize size={14} style={{ display: 'inline', marginRight: '8px', verticalAlign: 'middle' }} />
+                  VER GALERÍA COMPLETA
+                </button>
+                <a href="/MENU.pdf" target="_blank" rel="noopener noreferrer" className="btn-outline">
+                  VER MENÚ DIGITAL
+                </a>
+              </div>
             </Reveal>
           </div>
         </div>
@@ -139,7 +144,6 @@ const GastronomySection = () => {
               <a className="btn-primary"
                 href="#reserva-mesa"
               >RESERVAR MESA</a>
-              <a href="/MENU.pdf" target="_blank" rel="noopener noreferrer" className="btn-outline">VER MENÚ DIGITAL</a>
             </div>
           </div>
         </Reveal>

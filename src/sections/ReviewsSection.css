@@ -38,6 +38,80 @@
   flex-direction: column;
   gap: 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-height: 380px;
+}
+
+.rv-read-more {
+  background: none;
+  border: none;
+  color: var(--color-accent);
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 6px;
+  text-decoration: underline;
+}
+
+.rv-read-more:hover {
+  color: var(--color-accent-hover);
+}
+
+/* ── Modal ──────────────────────────────────────────────────────── */
+.rv-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 20px;
+}
+
+.rv-modal-content {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 40px;
+  max-width: 600px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  animation: modalFadeIn 0.3s ease;
+}
+
+.rv-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: var(--color-text-secondary);
+  font-size: 32px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.rv-modal-close:hover {
+  color: var(--color-text-primary);
+}
+
+.rv-modal-text {
+  font-size: 16px;
+  color: var(--color-text-primary);
+  line-height: 1.8;
+  font-style: italic;
+  margin-bottom: 24px;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .review-card:hover {
@@ -118,7 +192,29 @@
 .reviews-nav {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 16px;
+}
+
+.rv-nav-btn {
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-primary);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.rv-nav-btn:hover {
+  background: var(--color-accent);
+  color: #000;
+  border-color: var(--color-accent);
+  transform: scale(1.05);
 }
 
 .reviews-counter {

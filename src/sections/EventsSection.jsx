@@ -51,7 +51,7 @@ const EventsSection = () => {
 
             <Reveal variant="fade-up" delay="480ms">
               <a
-                href="https://wa.me/573112340584?text=Hola,%20quisiera%20informaci%C3%B3n%20para%20realizar%20un%20evento%20en%20La%20Meca."
+                href="https://wa.me/573214490484?text=Hola,%20quisiera%20informaci%C3%B3n%20para%20realizar%20un%20evento%20en%20La%20Meca."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary events-btn"

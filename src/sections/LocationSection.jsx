@@ -19,7 +19,7 @@ const TIPS = [
   {
     Icon: Clock,
     title: 'Check-in',
-    desc: 'A partir de las 3:00 p.m. Check-out antes de las 12:00 m.',
+    desc: 'A partir de las 2:00 p.m. Check-out antes de las 12:00 m.',
   },
   {
     Icon: MapPin,
