@@ -1500,7 +1500,8 @@
 /* Modal: single column on tablets and mobile */
 @media (max-width: 860px) {
   .acc-modal-card--new {
-    max-height: none;
+    max-width: 560px;
+    max-height: 90vh;
     border-radius: 16px;
   }
 
@@ -1532,6 +1533,19 @@
   .acc-calendar-wrapper--inline {
     border-top: 1px solid var(--color-border);
     padding: 20px 0 0;
+  }
+
+  .acc-modal-close {
+    top: 14px;
+    right: 14px;
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+
+  .acc-modal-gallery .expand-icon-btn {
+    left: 14px;
+    right: auto;
   }
 }
 
