@@ -90,6 +90,8 @@ const RetreatSection = () => {
                 src={src}
                 alt={`Experiencia La Meca ${index + 1}`}
                 className={className}
+                loading={index === 0 ? 'eager' : 'lazy'}
+                decoding="async"
               />
             );
           })}

@@ -71,146 +71,397 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="dns-prefetch" href="https://wa.me" />
   <link rel="dns-prefetch" href="https://www.google.com" />
+  <!-- Fonts -->
   <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
     rel="stylesheet" />
+  <!-- Critical LCP images: preload to avoid render-blocking -->
+  <link rel="preload" as="image" href="/suite.png" fetchpriority="high" />
+  <link rel="preload" as="image" href="/LOGO.png" fetchpriority="high" />
+  <!-- First glamping image preloaded for fast section reveal -->
+  <link rel="preload" as="image" href="/glamping/glam1.jpg" />
+  <!-- Menu PDF: prefetch during idle so download feels instant -->
+  <link rel="prefetch" href="/MENU.pdf" as="document" />
 
-  <!-- ═══════════════════════════════════════
-       JSON-LD STRUCTURED DATA
-  ═══════════════════════════════════════ -->
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       SCHEMA MARKUP / JSON-LD — Datos Estructurados
+       5 tipos especializados para maxima cobertura en Google
+  ═══════════════════════════════════════════════════════════════ -->
+
+  <!-- 1/5: LodgingBusiness + Hostel — Negocio de glamping con habitaciones y precios -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["LodgingBusiness", "Hostel"],
+    "@id": "https://www.lamecaglamping.com/#negocio",
+    "name": "La Meca Glamping",
+    "alternateName": ["La Meca Glamping Guasca", "La Meca Glamping Cundinamarca"],
+    "description": "Glamping exclusivo con domos geodesicos termoacondicionados, jacuzzi panoramico climatizado para 4 personas y restaurante campestre de autor en Guasca, Cundinamarca. Pet-friendly. A solo 1 hora de Bogota.",
+    "url": "https://www.lamecaglamping.com",
+    "logo": "https://www.lamecaglamping.com/LOGO.png",
+    "image": [
+      "https://www.lamecaglamping.com/og-image.png",
+      "https://www.lamecaglamping.com/suite.png"
+    ],
+    "telephone": "+573214490484",
+    "email": "lamecaglamping@gmail.com",
+    "priceRange": "$$$",
+    "currenciesAccepted": "COP",
+    "paymentAccepted": "Efectivo, Transferencia bancaria",
+    "checkinTime": "14:00",
+    "checkoutTime": "12:00",
+    "numberOfRooms": 2,
+    "petsAllowed": true,
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Vereda Santa Barbara",
+      "addressLocality": "Guasca",
+      "addressRegion": "Cundinamarca",
+      "addressCountry": "CO",
+      "postalCode": "251840"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "4.8667",
+      "longitude": "-73.8667"
+    },
+    "hasMap": "https://www.google.com/maps/search/?api=1&query=La+Meca+Glamping+Guasca+Cundinamarca+Colombia",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "reviewCount": "7",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Valentina Rios" },
+        "datePublished": "2025-03",
+        "reviewBody": "Con solo llegar uno se transporta a un paisaje hermoso de nuestra sabana de Bogota. La amabilidad de la atencion, la calidad de la comida, las carnes, los cortes espectaculares. Todo es 10/10. Super recomendado.",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Andres Morales" },
+        "datePublished": "2025-02",
+        "reviewBody": "Un lugar hermoso para desconectarse de la ciudad a solo una hora. El servicio y atencion es excelente pero lo que nos quito el aliento fue su comida tan sabrosa. Le pondria mas estrellas pero ya no hay.",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Catalina Jimenez" },
+        "datePublished": "2025-01",
+        "reviewBody": "Me encanto! Es un sitio super acogedor con una comida deliciosa y un servicio impecable. Todo de 10/10. Sin duda, un lugar para volver y recomendar.",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Laura Bernal" },
+        "datePublished": "2024-11",
+        "reviewBody": "La Meca es el mejor lugar para desconectarse de la ciudad. Los glampings son limpios y comodos, la vista es espectacular. Lo que mas destaco es el amor que le ponen a cada detalle.",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
+      }
+    ],
+    "amenityFeature": [
+      { "@type": "LocationFeatureSpecification", "name": "Jacuzzi panoramico climatizado", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Termoacondicionado", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Pet-Friendly", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Fogata privada", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Restaurante campestre de autor", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Vista a las montanas de Guasca", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Bano privado de gran tamano", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Terraza privada", "value": true }
+    ],
+    "containsPlace": [
+      {
+        "@type": "HotelRoom",
+        "@id": "https://www.lamecaglamping.com/#patron70",
+        "name": "Domo Patron 70",
+        "description": "Domo geodesico termoacondicionado con cama doble, bano privado de gran tamano, terraza y jacuzzi panoramico climatizado para 4 personas con vista a las montanas.",
+        "occupancy": { "@type": "QuantitativeValue", "maxValue": 4 },
+        "bed": { "@type": "BedDetails", "typeOfBed": "Cama Doble", "numberOfBeds": 1 },
+        "amenityFeature": [
+          { "@type": "LocationFeatureSpecification", "name": "Jacuzzi panoramico", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Termoacondicionado", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Bano privado", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Terraza privada", "value": true }
+        ]
+      },
+      {
+        "@type": "HotelRoom",
+        "@id": "https://www.lamecaglamping.com/#donjulio",
+        "name": "Domo Don Julio",
+        "description": "Domo geodesico termoacondicionado con cama doble, bano privado de gran tamano, terraza y jacuzzi panoramico climatizado para 4 personas con vista a las montanas.",
+        "occupancy": { "@type": "QuantitativeValue", "maxValue": 4 },
+        "bed": { "@type": "BedDetails", "typeOfBed": "Cama Doble", "numberOfBeds": 1 },
+        "amenityFeature": [
+          { "@type": "LocationFeatureSpecification", "name": "Jacuzzi panoramico", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Termoacondicionado", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Bano privado", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Terraza privada", "value": true }
+        ]
+      }
+    ],
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Noche entre semana (Lunes a Jueves)",
+        "price": "360000",
+        "priceCurrency": "COP",
+        "description": "20% de descuento en noches de lunes a jueves. Por domo, hasta 2 personas incluidas."
+      },
+      {
+        "@type": "Offer",
+        "name": "Noche fin de semana (Viernes a Domingo)",
+        "price": "450000",
+        "priceCurrency": "COP",
+        "description": "Precio por domo en viernes, sabados y domingos. Hasta 2 personas incluidas."
+      }
+    ],
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Friday", "Saturday", "Sunday"],
+        "opens": "12:00",
+        "closes": "22:00"
+      }
+    ],
+    "starRating": { "@type": "Rating", "ratingValue": "5" },
+    "sameAs": [
+      "https://www.instagram.com/lamecaglamping/",
+      "https://www.facebook.com/lamecaglamping/",
+      "https://www.tiktok.com/@lamecaglamping"
+    ],
+    "potentialAction": {
+      "@type": "ReserveAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://wa.me/573214490484?text=Hola%2C%20quisiera%20reservar%20un%20glamping",
+        "inLanguage": "es-CO"
+      },
+      "result": { "@type": "LodgingReservation" }
+    }
+  }
+  </script>
+
+  <!-- 2/5: Restaurant — Restaurante campestre abierto al publico -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "@id": "https://www.lamecaglamping.com/#restaurante",
+    "name": "Restaurante La Meca Glamping",
+    "alternateName": "Restaurante Campestre La Meca",
+    "description": "Restaurante campestre abierto al publico en Guasca, Cundinamarca. Cocina de autor liderada por la Chef Clau. Especialistas en carnes maduradas Angus certificado y vinos.",
+    "url": "https://www.lamecaglamping.com/#gastronomia",
+    "telephone": "+573214490484",
+    "email": "lamecaglamping@gmail.com",
+    "logo": "https://www.lamecaglamping.com/LOGO.png",
+    "image": "https://www.lamecaglamping.com/og-image.png",
+    "servesCuisine": ["Carnes Maduradas", "Cocina de Autor", "Colombiana", "Asados"],
+    "priceRange": "$$$",
+    "currenciesAccepted": "COP",
+    "hasMenu": "https://www.lamecaglamping.com/MENU.pdf",
+    "acceptsReservations": true,
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Vereda Santa Barbara",
+      "addressLocality": "Guasca",
+      "addressRegion": "Cundinamarca",
+      "addressCountry": "CO"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "4.8667",
+      "longitude": "-73.8667"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "reviewCount": "7",
+      "bestRating": "5"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Friday", "Saturday", "Sunday"],
+        "opens": "12:00",
+        "closes": "22:00"
+      }
+    ],
+    "sameAs": [
+      "https://www.instagram.com/lamecaglamping/",
+      "https://www.facebook.com/lamecaglamping/"
+    ],
+    "potentialAction": {
+      "@type": "ReserveAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://www.lamecaglamping.com/#reserva-mesa",
+        "inLanguage": "es-CO"
+      },
+      "result": { "@type": "FoodEstablishmentReservation" }
+    }
+  }
+  </script>
+
+  <!-- 3/5: LocalBusiness — Busquedas de marca y Google My Business -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://www.lamecaglamping.com/#localbusiness",
+    "name": "La Meca Glamping",
+    "description": "Glamping y restaurante campestre exclusivo en Guasca, Cundinamarca, a 1 hora de Bogota.",
+    "url": "https://www.lamecaglamping.com",
+    "telephone": "+573214490484",
+    "email": "lamecaglamping@gmail.com",
+    "image": "https://www.lamecaglamping.com/og-image.png",
+    "logo": "https://www.lamecaglamping.com/LOGO.png",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Vereda Santa Barbara",
+      "addressLocality": "Guasca",
+      "addressRegion": "Cundinamarca",
+      "addressCountry": "CO"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "4.8667",
+      "longitude": "-73.8667"
+    },
+    "openingHours": ["Fr 12:00-22:00", "Sa 12:00-22:00", "Su 12:00-22:00"],
+    "priceRange": "$$$",
+    "sameAs": [
+      "https://www.instagram.com/lamecaglamping/",
+      "https://www.facebook.com/lamecaglamping/",
+      "https://www.tiktok.com/@lamecaglamping"
+    ]
+  }
+  </script>
+
+  <!-- 4/5: WebSite + BreadcrumbList -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "LodgingBusiness",
-        "@id": "https://www.lamecaglamping.com/#glamping",
-        "name": "La Meca Glamping",
-        "description": "Glamping exclusivo con domos geodésicos termoacondicionados, jacuzzi panorámico climatizado para 4 personas y restaurante de autor en Guasca, Cundinamarca. A 1 hora de Bogotá.",
-        "url": "https://www.lamecaglamping.com",
-        "telephone": "+573112340584",
-        "email": "lamecaglamping@gmail.com",
-        "image": [
-          "https://www.lamecaglamping.com/og-image.png"
-        ],
-        "priceRange": "$$$",
-        "currenciesAccepted": "COP",
-        "paymentAccepted": "Cash, Credit Card",
-        "amenityFeature": [
-          { "@type": "LocationFeatureSpecification", "name": "Jacuzzi panorámico climatizado", "value": true },
-          { "@type": "LocationFeatureSpecification", "name": "Termoacondicionado", "value": true },
-          { "@type": "LocationFeatureSpecification", "name": "Pet-Friendly", "value": true },
-          { "@type": "LocationFeatureSpecification", "name": "Fogata privada", "value": true },
-          { "@type": "LocationFeatureSpecification", "name": "Restaurante campestre", "value": true },
-          { "@type": "LocationFeatureSpecification", "name": "Vista a las montañas", "value": true }
-        ],
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Guasca",
-          "addressRegion": "Cundinamarca",
-          "addressCountry": "CO"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": "4.8667",
-          "longitude": "-73.8667"
-        },
-        "sameAs": [
-          "https://www.instagram.com/lamecaglamping/",
-          "https://www.facebook.com/lamecaglamping/",
-          "https://www.tiktok.com/@lamecaglamping"
-        ],
-        "openingHoursSpecification": [
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Friday", "Saturday", "Sunday"],
-            "opens": "12:00",
-            "closes": "22:00"
-          }
-        ],
-        "starRating": {
-          "@type": "Rating",
-          "ratingValue": "5"
-        }
-      },
-      {
-        "@type": "Restaurant",
-        "@id": "https://www.lamecaglamping.com/#restaurante",
-        "name": "Restaurante La Meca Glamping",
-        "description": "Restaurante campestre exclusivo con cocina de autor liderada por la Chef Clau. Especialistas en carnes maduradas Angus certificado, vinos y gastronomía exclusiva en Guasca.",
-        "url": "https://www.lamecaglamping.com/#gastronomia",
-        "telephone": "+573112340584",
-        "servesCuisine": ["Carnes Maduradas", "Cocina de Autor", "Colombiana"],
-        "priceRange": "$$$",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Guasca",
-          "addressRegion": "Cundinamarca",
-          "addressCountry": "CO"
-        },
-        "menu": "https://www.lamecaglamping.com/MENU.pdf"
-      },
-      {
         "@type": "WebSite",
         "@id": "https://www.lamecaglamping.com/#website",
         "url": "https://www.lamecaglamping.com",
         "name": "La Meca Glamping",
-        "description": "Glamping y restaurante campestre en Guasca, Cundinamarca",
-        "inLanguage": "es-CO",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://www.lamecaglamping.com/?s={search_term_string}",
-          "query-input": "required name=search_term_string"
-        }
+        "description": "Sitio oficial de La Meca Glamping — Glamping y Restaurante Campestre en Guasca, Cundinamarca",
+        "inLanguage": "es-CO"
       },
       {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "¿Dónde está ubicado La Meca Glamping?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "La Meca Glamping se encuentra en Guasca, Cundinamarca, Colombia, a solo 1 hora de Bogotá."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "¿Es pet-friendly La Meca Glamping?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Sí, La Meca Glamping acepta mascotas con un cargo adicional de $50.000 por mascota."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "¿Tiene jacuzzi La Meca Glamping?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Sí, cada glamping cuenta con un jacuzzi panorámico climatizado con capacidad para 4 personas y vista a las montañas."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "¿Cuánto cuesta una noche en La Meca Glamping?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "El precio base es de $450.000 COP por noche en fin de semana. De lunes a viernes hay un 20% de descuento, quedando en $360.000 COP por noche."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "¿Cómo reservo en La Meca Glamping?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Puedes reservar directamente por WhatsApp al +57 311 234 0584 o llenando el formulario de reserva en nuestro sitio web."
-            }
-          }
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Inicio",      "item": "https://www.lamecaglamping.com/#inicio" },
+          { "@type": "ListItem", "position": 2, "name": "Experiencia", "item": "https://www.lamecaglamping.com/#experiencia" },
+          { "@type": "ListItem", "position": 3, "name": "Espacios",    "item": "https://www.lamecaglamping.com/#espacios" },
+          { "@type": "ListItem", "position": 4, "name": "Alojamiento", "item": "https://www.lamecaglamping.com/#domos" },
+          { "@type": "ListItem", "position": 5, "name": "Restaurante", "item": "https://www.lamecaglamping.com/#gastronomia" },
+          { "@type": "ListItem", "position": 6, "name": "Eventos",     "item": "https://www.lamecaglamping.com/#eventos" },
+          { "@type": "ListItem", "position": 7, "name": "Resenas",     "item": "https://www.lamecaglamping.com/#resenas" },
+          { "@type": "ListItem", "position": 8, "name": "Contacto",    "item": "https://www.lamecaglamping.com/#contacto" }
         ]
       }
     ]
   }
   </script>
+
+  <!-- 5/5: FAQPage — 10 preguntas frecuentes reales -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Donde esta ubicado La Meca Glamping?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "La Meca Glamping se encuentra en la Vereda Santa Barbara, Guasca, Cundinamarca, Colombia, a solo 1 hora de Bogota por la carrera 7."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Cuanto cuesta una noche en La Meca Glamping?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "El precio es de $450.000 COP por noche en fin de semana (viernes a domingo) y $360.000 COP entre semana (lunes a jueves, 20% de descuento). Hasta 2 personas incluidas. Persona adicional: +$65.000 COP por noche."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Es pet-friendly La Meca Glamping?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Si, La Meca Glamping acepta mascotas con un cargo adicional de $50.000 COP por mascota."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Tiene jacuzzi La Meca Glamping?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Si, cada glamping cuenta con un jacuzzi panoramico climatizado para 4 personas y vista a las montanas de Guasca."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Cuantos glampings tiene La Meca Glamping?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "La Meca Glamping cuenta con 2 domos geodesicos: Patron 70 y Don Julio. Ambos termoacondicionados, con cama doble, bano privado, terraza y jacuzzi panoramico."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Como reservo en La Meca Glamping?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Puedes reservar por WhatsApp al +57 321 449 0484 o usando el formulario en www.lamecaglamping.com."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "El restaurante de La Meca Glamping esta abierto al publico?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Si, el restaurante esta abierto al publico en general, no solo para huespedes. Funciona viernes, sabados y domingos de 12:00 p.m. a 10:00 p.m."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Que tipo de comida sirven en La Meca Glamping?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ofrecen cocina de autor liderada por la Chef Clau, especialistas en carnes maduradas Angus certificado con mantequillas compuestas y preparaciones unicas."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "A que hora es el check-in y check-out en La Meca Glamping?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "El check-in es a partir de las 2:00 p.m. y el check-out debe realizarse antes de las 12:00 m. (mediodia)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "La Meca Glamping hace eventos privados?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Si, La Meca Glamping organiza eventos privados exclusivos: pedidas de mano, aniversarios, cumpleanos y reuniones corporativas. Contactar por WhatsApp al +57 321 449 0484."
+        }
+      }
+    ]
+  }
+  </script>
+
 </head>
 
 <body>

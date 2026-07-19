@@ -365,7 +365,7 @@ const Lightbox = ({ images, initialIndex, onClose }) => {
       <button className="lightbox-nav lightbox-prev" onClick={goPrev} aria-label="Anterior"><ChevronLeft size={32} /></button>
       <button className="lightbox-nav lightbox-next" onClick={goNext} aria-label="Siguiente"><ChevronRight size={32} /></button>
       <div className="lightbox-content" onClick={e => e.stopPropagation()}>
-        <img src={images[currentIndex]} alt="Vista completa" className="lightbox-img" />
+        <img src={images[currentIndex]} alt="Vista completa del glamping" className="lightbox-img" loading="lazy" />
         <div className="lightbox-counter">{currentIndex + 1} / {images.length}</div>
       </div>
     </div>
@@ -449,6 +449,7 @@ const GlampingModal = ({ glamping, onClose }) => {
                 className="acc-modal-main-img"
                 onClick={() => setLightboxOpen(true)}
                 style={{ cursor: 'pointer' }}
+                loading="lazy"
               />
               <div className="acc-modal-thumbs">
                 {glamping.images.map((src, i) => (
@@ -458,7 +459,7 @@ const GlampingModal = ({ glamping, onClose }) => {
                     onClick={() => setActiveImg(i)}
                     aria-label={`Imagen ${i + 1}`}
                   >
-                    <img src={src} alt="" />
+                    <img src={src} alt={`Miniatura glamping ${i + 1}`} loading="lazy" />
                   </button>
                 ))}
               </div>
@@ -715,6 +716,8 @@ const AccommodationSection = () => {
                     className="glamping-hero-img"
                     onClick={() => setLightboxOpen(true)}
                     style={{ cursor: 'pointer' }}
+                    loading="lazy"
+                    decoding="async"
                   />
                   <span className={`glamping-card-tag glamping-card-tag--${glamping.tagColor}`}>
                     {glamping.tag}

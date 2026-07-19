@@ -64,10 +64,10 @@ const EventsSection = () => {
 
           <div className="events-images">
             <Reveal variant="fade-left" delay="200ms" className="ei-wrapper ei-main">
-              <img src="/restaurante/local2.jpg" alt="Interior del Restaurante La Meca Glamping para eventos privados en Guasca" />
+              <img src="/restaurante/local2.jpg" alt="Interior del Restaurante La Meca Glamping para eventos privados en Guasca" loading="lazy" />
             </Reveal>
             <Reveal variant="fade-up" delay="400ms" className="ei-wrapper ei-secondary">
-              <img src="/Comunidad/meca3.png" alt="Celebración exclusiva en La Meca Glamping, Cundinamarca" />
+              <img src="/Comunidad/meca3.png" alt="Celebración exclusiva en La Meca Glamping, Cundinamarca" loading="lazy" />
             </Reveal>
           </div>
         </div>

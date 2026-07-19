@@ -40,11 +40,11 @@ const Navbar = () => {
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="navbar-container">
-        <a href="#inicio" className="logo" onClick={closeMenu}>
-          <div className="logo-text">
+        <a href="#inicio" className="logo" onClick={closeMenu} aria-label="La Meca Glamping — Inicio">
+          <h1 className="logo-text">
             <span className="logo-title">LA MECA</span>
             <span className="logo-subtitle">GLAMPING</span>
-          </div>
+          </h1>
         </a>
 
         {/* Desktop Links */}
@@ -52,7 +52,7 @@ const Navbar = () => {
           {NAV_LINKS.map(link => (
             <a key={link.href} href={link.href}>{link.label}</a>
           ))}
-          <a href="/MENU.pdf" target="_blank" rel="noopener noreferrer" className="nav-menu-btn" style={{color: 'var(--color-accent)', fontWeight: 'bold'}}>VER MENÚ</a>
+          <a href="/MENU.pdf" target="_blank" rel="noopener noreferrer" download="Menu-La-Meca-Glamping.pdf" className="nav-menu-btn" style={{color: 'var(--color-accent)', fontWeight: 'bold'}}>VER MENÚ</a>
         </div>
 
         {/* Mobile Hamburger Icon */}
@@ -69,7 +69,7 @@ const Navbar = () => {
               {link.label}
             </a>
           ))}
-          <a href="/MENU.pdf" target="_blank" rel="noopener noreferrer" onClick={closeMenu} className="mobile-nav-link" style={{color: 'var(--color-accent)', fontWeight: 'bold'}}>
+          <a href="/MENU.pdf" target="_blank" rel="noopener noreferrer" download="Menu-La-Meca-Glamping.pdf" onClick={closeMenu} className="mobile-nav-link" style={{color: 'var(--color-accent)', fontWeight: 'bold'}}>
             VER MENÚ DIGITAL
           </a>
         </div>

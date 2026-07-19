@@ -40,6 +40,12 @@
 .logo-text {
   display: flex;
   flex-direction: column;
+  /* Reset h1 browser defaults — visual stays identical */
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
 }
 
 .logo-title {
