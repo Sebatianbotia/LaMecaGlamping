@@ -20,7 +20,7 @@ const REVIEWS = [
     rating: 5,
     date: 'Febrero 2025',
     text: 'Un lugar hermoso para desconectarse de la ciudad que está a sólo una hora. Las habitaciones son cómodas pero si hace frío! Recomendable llevar abrigo. El servicio y atención de Paty, Britney y Alejo es excelente pero lo que nos quitó el aliento fue su comida tan sabrosa. Desde el café al vino caliente, la fruta, hasta la ensalada de la huerta, el chuletón y el puré. Muy relax si lo que buscas es descansar en silencio. Le pondría más estrellas pero ya no hay.',
-    avatar: '/Comunidad/meca9.jpeg',
+    avatar: 'https://res.cloudinary.com/gdqhyfui/image/upload/v1788792275/meca9_rdow7j.jpg',
   },
   {
     id: 3,
@@ -47,7 +47,7 @@ const REVIEWS = [
     rating: 5,
     date: 'Noviembre 2024',
     text: 'La Meca es el mejor lugar para desconectarse de la ciudad. Los gampling son limpios y cómodos, la vista es espectacular. Lo que más destaco, es el amor que le ponen a cada detalle. El desayuno es espectacular, se nota el amor en todo: los huevitos con cebolla y tomate picados finamente , la mermelada artesanal y el pan tostado. Nos sentimos como en casa. Gracias!!',
-    avatar: '/Comunidad/meca11.PNG',
+    avatar: 'https://res.cloudinary.com/gdqhyfui/image/upload/v1788792325/meca11_jgchgj.png',
   },
   {
     id: 6,
@@ -65,7 +65,7 @@ const REVIEWS = [
     rating: 5,
     date: 'Septiembre 2024',
     text: 'Almorzamos entre semana. 5 adultos 3 niños. Previa cita. Envian la carta por WA, solicitan la hora de llegada a comer. Muy puntuales en el servicio. Carnes variadas de muy buena preparación. Aderezos y salsas muy suaves y agradables al paladar. Ensalada diferente. Regresaremos con un grupo familiara 3 veces mas grande.',
-    avatar: '/Comunidad/meca9.jpeg',
+    avatar: 'https://res.cloudinary.com/gdqhyfui/image/upload/v1788792275/meca9_rdow7j.jpg',
   }
 ];
 

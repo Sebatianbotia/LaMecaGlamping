@@ -15,7 +15,7 @@ const HeroSection = () => {
         preload="metadata"
         poster="/suite.png"
       >
-        <source src="/fondo.mp4" type="video/mp4" />
+        <source src="https://res.cloudinary.com/gdqhyfui/video/upload/v1788792166/fondo_wqciml.mp4" type="video/mp4" />
       </video>
       <div className="hero-overlay"></div>
       <div className="hero-content">

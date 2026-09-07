@@ -67,7 +67,7 @@ const EventsSection = () => {
               <img src="/restaurante/local2.jpg" alt="Interior del Restaurante La Meca Glamping para eventos privados en Guasca" loading="lazy" />
             </Reveal>
             <Reveal variant="fade-up" delay="400ms" className="ei-wrapper ei-secondary">
-              <img src="/Comunidad/meca3.png" alt="Celebración exclusiva en La Meca Glamping, Cundinamarca" loading="lazy" />
+              <img src="https://res.cloudinary.com/gdqhyfui/image/upload/v1788792272/meca3_gjarew.png" alt="Celebración exclusiva en La Meca Glamping, Cundinamarca" loading="lazy" />
             </Reveal>
           </div>
         </div>

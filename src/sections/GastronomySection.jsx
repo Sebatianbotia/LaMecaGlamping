@@ -99,7 +99,7 @@ const GastronomySection = () => {
                   <Maximize size={14} style={{ display: 'inline', marginRight: '8px', verticalAlign: 'middle' }} />
                   VER GALERÍA COMPLETA
                 </button>
-                <a href="/MENU.pdf" target="_blank" rel="noopener noreferrer" className="btn-outline">
+                <a href="https://drive.google.com/file/d/1jmcfrNGzRlVaJ8MIxAe_VE4kE7oOLneI/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="btn-outline">
                   VER MENÚ DIGITAL
                 </a>
               </div>

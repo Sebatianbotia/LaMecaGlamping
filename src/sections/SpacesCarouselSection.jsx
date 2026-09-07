@@ -4,22 +4,22 @@ import Reveal from '../components/Reveal';
 import './SpacesCarouselSection.css';
 
 const espaciosImages = [
-  { src: '/Comunidad/meca1.png', alt: 'Espacio La Meca 1' },
-  { src: '/Comunidad/meca2.png', alt: 'Espacio La Meca 2' },
-  { src: '/Comunidad/meca3.png', alt: 'Espacio La Meca 3' },
-  { src: '/Comunidad/meca4.png', alt: 'Espacio La Meca 4' },
-  { src: '/Comunidad/meca5.png', alt: 'Espacio La Meca 5' },
-  { src: '/Comunidad/meca6.PNG', alt: 'Espacio La Meca 6' },
-  { src: '/Comunidad/meca7.PNG', alt: 'Espacio La Meca 7' },
-  { src: '/Comunidad/meca8.PNG', alt: 'Espacio La Meca 8' },
-  { src: '/Comunidad/meca9.jpeg', alt: 'Espacio La Meca 9' },
-  { src: '/Comunidad/meca10.jpeg', alt: 'Espacio La Meca 10' },
-  { src: '/Comunidad/meca11.PNG', alt: 'Espacio La Meca 11' },
-  { src: '/Comunidad/meca12.PNG', alt: 'Espacio La Meca 12' },
-  { src: '/Comunidad/meca13.PNG', alt: 'Espacio La Meca 13' },
-  { src: '/Comunidad/meca14.jpg', alt: 'Espacio La Meca 14' },
-  { src: '/Comunidad/meca15.jpg', alt: 'Espacio La Meca 15' },
-  { src: '/Comunidad/meca16.jpg', alt: 'Espacio La Meca 16' }
+  { src: 'https://res.cloudinary.com/gdqhyfui/image/upload/v1788792271/meca1_bifep7.png', alt: 'Espacio La Meca 1' },
+  { src: 'https://res.cloudinary.com/gdqhyfui/image/upload/v1788792272/meca2_dnufsr.png', alt: 'Espacio La Meca 2' },
+  { src: 'https://res.cloudinary.com/gdqhyfui/image/upload/v1788792272/meca3_gjarew.png', alt: 'Espacio La Meca 3' },
+  { src: 'https://res.cloudinary.com/gdqhyfui/image/upload/v1788792273/meca4_jlf9f4.png', alt: 'Espacio La Meca 4' },
+  { src: 'https://res.cloudinary.com/gdqhyfui/image/upload/v1788792273/meca5_p3r9em.png', alt: 'Espacio La Meca 5' },
+  { src: 'https://res.cloudinary.com/gdqhyfui/image/upload/v1788792273/meca6_o0kuj0.png', alt: 'Espacio La Meca 6' },
+  { src: 'https://res.cloudinary.com/gdqhyfui/image/upload/v1788792273/meca7_hft1zy.png', alt: 'Espacio La Meca 7' },
+  { src: 'https://res.cloudinary.com/gdqhyfui/image/upload/v1788792274/meca8_uevgww.png', alt: 'Espacio La Meca 8' },
+  { src: 'https://res.cloudinary.com/gdqhyfui/image/upload/v1788792275/meca9_rdow7j.jpg', alt: 'Espacio La Meca 9' },
+  { src: 'https://res.cloudinary.com/gdqhyfui/image/upload/v1788792275/meca10_udwkb6.jpg', alt: 'Espacio La Meca 10' },
+  { src: 'https://res.cloudinary.com/gdqhyfui/image/upload/v1788792325/meca11_jgchgj.png', alt: 'Espacio La Meca 11' },
+  { src: 'https://res.cloudinary.com/gdqhyfui/image/upload/v1788792331/meca12_pqt1jh.png', alt: 'Espacio La Meca 12' },
+  { src: 'https://res.cloudinary.com/gdqhyfui/image/upload/v1788792331/meca13_fj6ybz.png', alt: 'Espacio La Meca 13' },
+  { src: 'https://res.cloudinary.com/gdqhyfui/image/upload/v1788792331/meca14_abpxgo.jpg', alt: 'Espacio La Meca 14' },
+  { src: 'https://res.cloudinary.com/gdqhyfui/image/upload/v1788792332/meca15_cy4kti.jpg', alt: 'Espacio La Meca 15' },
+  { src: 'https://res.cloudinary.com/gdqhyfui/image/upload/v1788792332/meca16_blzqah.jpg', alt: 'Espacio La Meca 16' }
 ];
 
 const Lightbox = ({ images, initialIndex, onClose }) => {
