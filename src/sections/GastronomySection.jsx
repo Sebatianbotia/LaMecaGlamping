@@ -5,17 +5,17 @@ import './GastronomySection.css';
 
 /* All food images flat — used by mobile carousel */
 const carouselImages = [
-  { src: '/restaurante/local2.jpg', alt: 'Interior del Restaurante' },
-  { src: '/restaurante/burguer.png', alt: 'Hamburguesa' },
-  { src: '/restaurante/vino.png', alt: 'Selección de vinos' },
-  { src: '/restaurante/steak1.png', alt: 'Corte de carne' },
-  { src: '/restaurante/plato.png', alt: 'Plato especial' },
-  { src: '/restaurante/local.png', alt: 'Ambiente del lugar' },
-  { src: '/restaurante/copa.png', alt: 'Postre en copa' },
-  { src: '/restaurante/steak2.png', alt: 'Carne a la parrilla' },
-  { src: '/restaurante/burguer2.png', alt: 'Hamburguesa especial' },
-  { src: '/restaurante/pollo.png', alt: 'Plato con pollo' },
-  { src: '/restaurante/steak3.png', alt: 'Carne en plato' },
+  { src: '/restaurante/local2.webp', alt: 'Interior del Restaurante' },
+  { src: '/restaurante/burguer.webp', alt: 'Hamburguesa' },
+  { src: '/restaurante/vino.webp', alt: 'Selección de vinos' },
+  { src: '/restaurante/steak1.webp', alt: 'Corte de carne' },
+  { src: '/restaurante/plato.webp', alt: 'Plato especial' },
+  { src: '/restaurante/local.webp', alt: 'Ambiente del lugar' },
+  { src: '/restaurante/copa.webp', alt: 'Postre en copa' },
+  { src: '/restaurante/steak2.webp', alt: 'Carne a la parrilla' },
+  { src: '/restaurante/burguer2.webp', alt: 'Hamburguesa especial' },
+  { src: '/restaurante/pollo.webp', alt: 'Plato con pollo' },
+  { src: '/restaurante/steak3.webp', alt: 'Carne en plato' },
 ];
 
 const Lightbox = ({ images, initialIndex, onClose }) => {

@@ -13,15 +13,15 @@ const HeroSection = () => {
         muted
         playsInline
         preload="metadata"
-        poster="/suite.png"
+        poster="/suite.webp"
       >
-        <source src="https://res.cloudinary.com/gdqhyfui/video/upload/v1788792166/fondo_wqciml.mp4" type="video/mp4" />
+        <source src="https://res.cloudinary.com/gdqhyfui/video/upload/q_auto,f_auto/v1788792166/fondo_wqciml.mp4" type="video/mp4" />
       </video>
       <div className="hero-overlay"></div>
       <div className="hero-content">
         <Reveal variant="fade-up" delay="100ms" duration="1000ms">
           <img
-            src="/LOGO.png"
+            src="/LOGO.webp"
             alt="La Meca Glamping — Glamping y Restaurante Campestre en Guasca, Cundinamarca"
             className="hero-logo"
             fetchPriority="high"

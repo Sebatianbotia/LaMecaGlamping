@@ -11,7 +11,7 @@ const REVIEWS = [
     rating: 5,
     date: 'Marzo 2025',
     text: 'Con solo llegar uno se transporta a un paisaje hermoso de nuestra sabana de Bogota, la amabilidad de la atención de los meseros de Angie y Alejandro son muy agradables, la calidad de la comida , las carnes, los cortes espectaculares, en su punto, las patatas bravas y la ensalada fresca con las luchas orgánicas qué cultivan, la atmósfera del restaurante es todo un arte , el diseño , la decoración muy exclusiva, moderna , acogedora y muy creativa. Todo es 10/10 los precios justos , hace que sea una experiencia muy espectacular en familia !! Super recomendado!! Y para cerrar una conversación amable y dulce de su Chef Clau!!',
-    avatar: '/suite.png',
+    avatar: '/suite.webp',
   },
   {
     id: 2,
@@ -20,7 +20,7 @@ const REVIEWS = [
     rating: 5,
     date: 'Febrero 2025',
     text: 'Un lugar hermoso para desconectarse de la ciudad que está a sólo una hora. Las habitaciones son cómodas pero si hace frío! Recomendable llevar abrigo. El servicio y atención de Paty, Britney y Alejo es excelente pero lo que nos quitó el aliento fue su comida tan sabrosa. Desde el café al vino caliente, la fruta, hasta la ensalada de la huerta, el chuletón y el puré. Muy relax si lo que buscas es descansar en silencio. Le pondría más estrellas pero ya no hay.',
-    avatar: 'https://res.cloudinary.com/gdqhyfui/image/upload/v1788792275/meca9_rdow7j.jpg',
+    avatar: 'https://res.cloudinary.com/gdqhyfui/image/upload/q_auto,f_auto/v1788792275/meca9_rdow7j.jpg',
   },
   {
     id: 3,
@@ -29,7 +29,7 @@ const REVIEWS = [
     rating: 5,
     date: 'Enero 2025',
     text: '¡Me encantó! Es un sitio súper acogedor con una comida deliciosa y un servicio impecable. Todo de 10/10. Sin duda, un lugar para volver y recomendar.😉',
-    avatar: '/suite2.png',
+    avatar: '/suite2.webp',
   },
   {
     id: 4,
@@ -38,7 +38,7 @@ const REVIEWS = [
     rating: 5,
     date: 'Diciembre 2024',
     text: 'Fuí al restaurante y es completamente espectacular, la comida deliciosa, el ambiente increíble y la atención inmejorable. Súper recomendado.',
-    avatar: '/fogata.png',
+    avatar: '/fogata.webp',
   },
   {
     id: 5,
@@ -47,7 +47,7 @@ const REVIEWS = [
     rating: 5,
     date: 'Noviembre 2024',
     text: 'La Meca es el mejor lugar para desconectarse de la ciudad. Los gampling son limpios y cómodos, la vista es espectacular. Lo que más destaco, es el amor que le ponen a cada detalle. El desayuno es espectacular, se nota el amor en todo: los huevitos con cebolla y tomate picados finamente , la mermelada artesanal y el pan tostado. Nos sentimos como en casa. Gracias!!',
-    avatar: 'https://res.cloudinary.com/gdqhyfui/image/upload/v1788792325/meca11_jgchgj.png',
+    avatar: 'https://res.cloudinary.com/gdqhyfui/image/upload/q_auto,f_auto/v1788792325/meca11_jgchgj.png',
   },
   {
     id: 6,
@@ -56,7 +56,7 @@ const REVIEWS = [
     rating: 5,
     date: 'Octubre 2024',
     text: 'Fui al restaurante, a mi esposo y a mi nos encanta. La presentación del lugar, los alimentos, las porciones, la chimenea, es un lugar muy recomendado para comer rico y tener una experiencia 10!',
-    avatar: '/suite.png',
+    avatar: '/suite.webp',
   },
   {
     id: 7,
@@ -65,7 +65,7 @@ const REVIEWS = [
     rating: 5,
     date: 'Septiembre 2024',
     text: 'Almorzamos entre semana. 5 adultos 3 niños. Previa cita. Envian la carta por WA, solicitan la hora de llegada a comer. Muy puntuales en el servicio. Carnes variadas de muy buena preparación. Aderezos y salsas muy suaves y agradables al paladar. Ensalada diferente. Regresaremos con un grupo familiara 3 veces mas grande.',
-    avatar: 'https://res.cloudinary.com/gdqhyfui/image/upload/v1788792275/meca9_rdow7j.jpg',
+    avatar: 'https://res.cloudinary.com/gdqhyfui/image/upload/q_auto,f_auto/v1788792275/meca9_rdow7j.jpg',
   }
 ];
 

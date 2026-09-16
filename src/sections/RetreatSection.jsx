@@ -12,22 +12,22 @@ const features = [
 ];
 
 const carouselImages = [
-  'https://res.cloudinary.com/gdqhyfui/image/upload/v1788792271/meca1_bifep7.png',
-  'https://res.cloudinary.com/gdqhyfui/image/upload/v1788792272/meca2_dnufsr.png',
-  'https://res.cloudinary.com/gdqhyfui/image/upload/v1788792272/meca3_gjarew.png',
-  'https://res.cloudinary.com/gdqhyfui/image/upload/v1788792273/meca4_jlf9f4.png',
-  'https://res.cloudinary.com/gdqhyfui/image/upload/v1788792273/meca5_p3r9em.png',
-  'https://res.cloudinary.com/gdqhyfui/image/upload/v1788792273/meca6_o0kuj0.png',
-  'https://res.cloudinary.com/gdqhyfui/image/upload/v1788792273/meca7_hft1zy.png',
-  'https://res.cloudinary.com/gdqhyfui/image/upload/v1788792274/meca8_uevgww.png',
-  'https://res.cloudinary.com/gdqhyfui/image/upload/v1788792275/meca9_rdow7j.jpg',
-  'https://res.cloudinary.com/gdqhyfui/image/upload/v1788792275/meca10_udwkb6.jpg',
-  'https://res.cloudinary.com/gdqhyfui/image/upload/v1788792325/meca11_jgchgj.png',
-  'https://res.cloudinary.com/gdqhyfui/image/upload/v1788792331/meca12_pqt1jh.png',
-  'https://res.cloudinary.com/gdqhyfui/image/upload/v1788792331/meca13_fj6ybz.png',
-  'https://res.cloudinary.com/gdqhyfui/image/upload/v1788792331/meca14_abpxgo.jpg',
-  'https://res.cloudinary.com/gdqhyfui/image/upload/v1788792332/meca15_cy4kti.jpg',
-  'https://res.cloudinary.com/gdqhyfui/image/upload/v1788792332/meca16_blzqah.jpg'
+  'https://res.cloudinary.com/gdqhyfui/image/upload/q_auto,f_auto/v1788792271/meca1_bifep7.png',
+  'https://res.cloudinary.com/gdqhyfui/image/upload/q_auto,f_auto/v1788792272/meca2_dnufsr.png',
+  'https://res.cloudinary.com/gdqhyfui/image/upload/q_auto,f_auto/v1788792272/meca3_gjarew.png',
+  'https://res.cloudinary.com/gdqhyfui/image/upload/q_auto,f_auto/v1788792273/meca4_jlf9f4.png',
+  'https://res.cloudinary.com/gdqhyfui/image/upload/q_auto,f_auto/v1788792273/meca5_p3r9em.png',
+  'https://res.cloudinary.com/gdqhyfui/image/upload/q_auto,f_auto/v1788792273/meca6_o0kuj0.png',
+  'https://res.cloudinary.com/gdqhyfui/image/upload/q_auto,f_auto/v1788792273/meca7_hft1zy.png',
+  'https://res.cloudinary.com/gdqhyfui/image/upload/q_auto,f_auto/v1788792274/meca8_uevgww.png',
+  'https://res.cloudinary.com/gdqhyfui/image/upload/q_auto,f_auto/v1788792275/meca9_rdow7j.jpg',
+  'https://res.cloudinary.com/gdqhyfui/image/upload/q_auto,f_auto/v1788792275/meca10_udwkb6.jpg',
+  'https://res.cloudinary.com/gdqhyfui/image/upload/q_auto,f_auto/v1788792325/meca11_jgchgj.png',
+  'https://res.cloudinary.com/gdqhyfui/image/upload/q_auto,f_auto/v1788792331/meca12_pqt1jh.png',
+  'https://res.cloudinary.com/gdqhyfui/image/upload/q_auto,f_auto/v1788792331/meca13_fj6ybz.png',
+  'https://res.cloudinary.com/gdqhyfui/image/upload/q_auto,f_auto/v1788792331/meca14_abpxgo.jpg',
+  'https://res.cloudinary.com/gdqhyfui/image/upload/q_auto,f_auto/v1788792332/meca15_cy4kti.jpg',
+  'https://res.cloudinary.com/gdqhyfui/image/upload/q_auto,f_auto/v1788792332/meca16_blzqah.jpg'
 ];
 
 

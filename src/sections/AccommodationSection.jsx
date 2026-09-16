@@ -20,8 +20,8 @@ const GLAMPINGS = [
     name: 'Nuestros Glampings',
     tag: 'MÁS POPULARES',
     tagColor: 'gold',
-    image: '/glamping/glam1.jpg',
-    images: ['/glamping/glam1.jpg', '/glamping/glam6.jpg', '/glamping/glam3.jpg', '/glamping/glam4.jpg'],
+    image: '/glamping/glam1.webp',
+    images: ['/glamping/glam1.webp', '/glamping/glam6.webp', '/glamping/glam3.webp', '/glamping/glam4.webp'],
     capacity: 'Hasta 4 personas',
     description:
       'Contamos con 2 glampings: Patrón 70 y Don Julio. Vive una experiencia de descanso única en nuestros exclusivos domos geodésicos termoacondicionados, combinando confort, privacidad y naturaleza. Equipado con cama doble, sofá, baño privado de gran tamaño y amplia terraza. Relájate en nuestro jacuzzi panorámico climatizado para 4 personas contemplando la increíble vista a las montañas.',
