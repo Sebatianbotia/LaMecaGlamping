@@ -12,22 +12,22 @@ const features = [
 ];
 
 const carouselImages = [
-  'https://res.cloudinary.com/gdqhyfui/image/upload/q_auto,f_auto/v1788792271/meca1_bifep7.png',
-  'https://res.cloudinary.com/gdqhyfui/image/upload/q_auto,f_auto/v1788792272/meca2_dnufsr.png',
-  'https://res.cloudinary.com/gdqhyfui/image/upload/q_auto,f_auto/v1788792272/meca3_gjarew.png',
-  'https://res.cloudinary.com/gdqhyfui/image/upload/q_auto,f_auto/v1788792273/meca4_jlf9f4.png',
-  'https://res.cloudinary.com/gdqhyfui/image/upload/q_auto,f_auto/v1788792273/meca5_p3r9em.png',
-  'https://res.cloudinary.com/gdqhyfui/image/upload/q_auto,f_auto/v1788792273/meca6_o0kuj0.png',
-  'https://res.cloudinary.com/gdqhyfui/image/upload/q_auto,f_auto/v1788792273/meca7_hft1zy.png',
-  'https://res.cloudinary.com/gdqhyfui/image/upload/q_auto,f_auto/v1788792274/meca8_uevgww.png',
-  'https://res.cloudinary.com/gdqhyfui/image/upload/q_auto,f_auto/v1788792275/meca9_rdow7j.jpg',
-  'https://res.cloudinary.com/gdqhyfui/image/upload/q_auto,f_auto/v1788792275/meca10_udwkb6.jpg',
-  'https://res.cloudinary.com/gdqhyfui/image/upload/q_auto,f_auto/v1788792325/meca11_jgchgj.png',
-  'https://res.cloudinary.com/gdqhyfui/image/upload/q_auto,f_auto/v1788792331/meca12_pqt1jh.png',
-  'https://res.cloudinary.com/gdqhyfui/image/upload/q_auto,f_auto/v1788792331/meca13_fj6ybz.png',
-  'https://res.cloudinary.com/gdqhyfui/image/upload/q_auto,f_auto/v1788792331/meca14_abpxgo.jpg',
-  'https://res.cloudinary.com/gdqhyfui/image/upload/q_auto,f_auto/v1788792332/meca15_cy4kti.jpg',
-  'https://res.cloudinary.com/gdqhyfui/image/upload/q_auto,f_auto/v1788792332/meca16_blzqah.jpg'
+  'https://res.cloudinary.com/kne5vgk7/image/upload/q_auto,f_auto/v1790523516/meca6.png',
+  'https://res.cloudinary.com/kne5vgk7/image/upload/q_auto,f_auto/v1790523516/meca7.png',
+  'https://res.cloudinary.com/kne5vgk7/image/upload/q_auto,f_auto/v1790523516/meca5.png',
+  'https://res.cloudinary.com/kne5vgk7/image/upload/q_auto,f_auto/v1790523516/meca4.png',
+  'https://res.cloudinary.com/kne5vgk7/image/upload/q_auto,f_auto/v1790523515/meca1.png',
+  'https://res.cloudinary.com/kne5vgk7/image/upload/q_auto,f_auto/v1790523515/meca3.png',
+  'https://res.cloudinary.com/kne5vgk7/image/upload/q_auto,f_auto/v1790523515/meca2.png',
+  'https://res.cloudinary.com/kne5vgk7/image/upload/q_auto,f_auto/v1790523514/meca12.png',
+  'https://res.cloudinary.com/kne5vgk7/image/upload/q_auto,f_auto/v1790523514/meca13.png',
+  'https://res.cloudinary.com/kne5vgk7/image/upload/q_auto,f_auto/v1790523514/meca8.png',
+  'https://res.cloudinary.com/kne5vgk7/image/upload/q_auto,f_auto/v1790523514/meca16.jpg',
+  'https://res.cloudinary.com/kne5vgk7/image/upload/q_auto,f_auto/v1790523514/meca15.jpg',
+  'https://res.cloudinary.com/kne5vgk7/image/upload/q_auto,f_auto/v1790523514/meca11.png',
+  'https://res.cloudinary.com/kne5vgk7/image/upload/q_auto,f_auto/v1790523514/meca14.jpg',
+  'https://res.cloudinary.com/kne5vgk7/image/upload/q_auto,f_auto/v1790523513/meca10.jpg',
+  'https://res.cloudinary.com/kne5vgk7/image/upload/q_auto,f_auto/v1790523513/meca9.jpg'
 ];
 
 
@@ -41,7 +41,7 @@ const RetreatSection = () => {
         setPrevImageIndex(prev);
         return prev === carouselImages.length - 1 ? 0 : prev + 1;
       });
-    }, 2500); // slightly longer interval to appreciate the photos
+    }, 2500);
     return () => clearInterval(timer);
   }, []);
 

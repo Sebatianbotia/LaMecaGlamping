@@ -15,7 +15,7 @@ const HeroSection = () => {
         preload="metadata"
         poster="/suite.webp"
       >
-        <source src="https://res.cloudinary.com/gdqhyfui/video/upload/q_auto,f_auto/v1788792166/fondo_wqciml.mp4" type="video/mp4" />
+        <source src="https://res.cloudinary.com/kne5vgk7/video/upload/q_auto,f_auto/v1790523538/fondo.mp4" type="video/mp4" />
       </video>
       <div className="hero-overlay"></div>
       <div className="hero-content">
